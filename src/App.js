@@ -10,8 +10,8 @@ import React, {Component} from 'react';
 import {Provider} from 'react-redux';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import store from './store';
-import {Button, Header, TextField} from "./components/index";
-import LoginScreen from "./screens/LoginScreen";
+import AppNavigator from './navigation/navigators';
+import LoginContainer from "./containers/Login/LoginContainer";
 
 const instructions = Platform.select({
     ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -26,22 +26,7 @@ export default class App extends Component<Props> {
     render() {
         return (
             <Provider store={store}>
-                <View style={styles.container}>
-                    {/*<Header title='Test'/>*/}
-                    {/*<View style={styles.container}>*/}
-                        {/*<Text style={styles.welcome}>Welcome to React Native!</Text>*/}
-                        {/*<Text style={styles.instructions}>To get started, edit App.js</Text>*/}
-                        {/*<Text style={styles.instructions}>{instructions}</Text>*/}
-                        {/*<TextField label='Test' placeholder='test'/>*/}
-                        {/*<TextField label='Test2' placeholder='test'/>*/}
-
-                        {/*<Button onPress={() => {*/}
-                            {/*return 1;*/}
-                        {/*}} color='#D6D7D7' text='test'/>*/}
-                    {/*</View>*/}
-                    <LoginScreen/>
-                </View>
-
+                <AppNavigator />
             </Provider>
         );
     }

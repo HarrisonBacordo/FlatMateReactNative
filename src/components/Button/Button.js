@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {TouchableOpacity, Text} from 'react-native';
-import {Colors} from '../values/colors'
+import {colors} from '../../config/colors'
 
 type Props = {};
 export class Button extends Component<Props> {
@@ -17,7 +17,7 @@ export class Button extends Component<Props> {
             textStyle: {
                 textAlign: 'center',
                 fontSize: 15,
-                color: Colors.textColor,
+                color: colors.textColor,
             }
 
         };
