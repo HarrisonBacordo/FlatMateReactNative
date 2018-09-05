@@ -1,20 +1,14 @@
 import { FETCH_REMINDERS, NEW_REMINDER, REMOVE_REMINDER } from "./types";
 
-export function fetchReminders() {
-    return function(dispatch) {
+export const fetchReminders = () => dispatch => {
 
-    }
-}
+};
 
-export function newReminder() {
-    return function(dispatch) {
+export const newReminder = (reminderData) => dispatch => {
 
-    }
-}
+};
 
-export function removeReminder() {
-    return function(dispatch) {
+export const removeReminder = (reminderData) => dispatch => {
 
-    }
-}
+};
 

@@ -2,32 +2,22 @@ import { FETCH_CHORES, NEW_CHORE, REMOVE_CHORE, NUDGE_CHORE, TOGGLE_CHORE } from
 import * as firebase from 'firebase/app';
 
 
-export function fetchChores() {
-    return function(dispatch) {
+export const fetchChores = () => dispatch => {
 
-    }
-}
+};
 
-export function newChore() {
-    return function(dispatch) {
+export const newChore = (choreData) => dispatch => {
 
-    }
-}
+};
 
-export function removeChore() {
-    return function(dispatch) {
+export const removeChore = (choreData) => dispatch => {
 
-    }
-}
+};
 
-export function nudgeChore() {
-    return function(dispatch) {
+export const nudgeChore = (choreData) => dispatch => {
 
-    }
-}
+};
 
-export function toggleChore() {
-    return function(dispatch) {
+export const toggleChore = (choreData) => dispatch => {
 
-    }
-}
+};

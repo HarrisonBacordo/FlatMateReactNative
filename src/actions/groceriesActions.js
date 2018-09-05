@@ -1,29 +1,21 @@
 import { FETCH_GROCERIES, NEW_GROCERY, REMOVE_GROCERY, TOGGLE_GROCERY } from "./types";
 
 
-export function fetchGroceries() {
-    return function(dispatch) {
+export const fetchGroceries = () => dispatch => {
 
-    }
-}
+};
 
-export function newGrocery() {
-    return function(dispatch) {
+export const newGrocery = (groceryData) => dispatch => {
 
-    }
-}
+};
 
-export function removeGrocery() {
-    return function(dispatch) {
+export const removeGrocery = (groceryData) => dispatch => {
 
-    }
-}
+};
 
-export function toggleGrocery() {
-    return function(dispatch) {
+export const toggleGrocery = (groceryData) => dispatch => {
 
-    }
-}
+};
 
 
 

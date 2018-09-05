@@ -10,6 +10,8 @@ import React, {Component} from 'react';
 import {Provider} from 'react-redux';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import store from './store';
+import {Button, Header, TextField} from "./components/index";
+import LoginScreen from "./screens/LoginScreen";
 
 const instructions = Platform.select({
     ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -25,10 +27,21 @@ export default class App extends Component<Props> {
         return (
             <Provider store={store}>
                 <View style={styles.container}>
-                    <Text style={styles.welcome}>Welcome to React Native!</Text>
-                    <Text style={styles.instructions}>To get started, edit App.js</Text>
-                    <Text style={styles.instructions}>{instructions}</Text>
+                    {/*<Header title='Test'/>*/}
+                    {/*<View style={styles.container}>*/}
+                        {/*<Text style={styles.welcome}>Welcome to React Native!</Text>*/}
+                        {/*<Text style={styles.instructions}>To get started, edit App.js</Text>*/}
+                        {/*<Text style={styles.instructions}>{instructions}</Text>*/}
+                        {/*<TextField label='Test' placeholder='test'/>*/}
+                        {/*<TextField label='Test2' placeholder='test'/>*/}
+
+                        {/*<Button onPress={() => {*/}
+                            {/*return 1;*/}
+                        {/*}} color='#D6D7D7' text='test'/>*/}
+                    {/*</View>*/}
+                    <LoginScreen/>
                 </View>
+
             </Provider>
         );
     }
@@ -38,7 +51,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center',
         backgroundColor: '#F5FCFF',
     },
     welcome: {

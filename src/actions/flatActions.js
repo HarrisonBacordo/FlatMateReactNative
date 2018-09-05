@@ -1,13 +1,9 @@
 import { NEW_FLAT, JOIN_FLAT } from "./types";
 
-export function newFlat() {
-    return function(dispatch) {
+export const newFlat = (flatData) => dispatch => {
 
-    }
-}
+};
 
-export function joinFlat() {
-    return function(dispatch) {
+export const joinFlat = (flatData) => dispatch => {
 
-    }
-}
+};

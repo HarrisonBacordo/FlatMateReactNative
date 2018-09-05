@@ -3,20 +3,14 @@ import * as firebase from 'firebase';
 
 const auth = new firebase.auth();
 
-export function logIn() {
-    return function(dispatch) {
+export const logIn = (loginData) => dispatch => {
+    console.log("E");
+};
 
-    }
-}
+export const signUp = (signupData) => dispatch => {
 
-export function signUp() {
-    return function(dispatch) {
+};
 
-    }
-}
+export const resetPassword = () => dispatch => {
 
-export function resetPassword() {
-    return function(dispatch) {
-
-    }
-}
+};

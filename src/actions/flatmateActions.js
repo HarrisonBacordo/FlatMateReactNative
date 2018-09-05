@@ -1,13 +1,9 @@
 import { FETCH_FLATMATES, NEW_FLATMATE } from "./types";
 
-export function fetchFlatmates() {
-    return function(dispatch) {
+export const fetchFlatmates = () => dispatch => {
 
-    }
-}
+};
 
-export function newFlatmate() {
-    return function(dispatch) {
+export const newFlatmate = (flatmateData) => dispatch => {
 
-    }
-}
+};
