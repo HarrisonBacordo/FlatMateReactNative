@@ -11,7 +11,6 @@ import {Provider} from 'react-redux';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import store from './store';
 import AppNavigator from './navigation/navigators';
-import LoginContainer from "./containers/Login/LoginContainer";
 
 const instructions = Platform.select({
     ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',

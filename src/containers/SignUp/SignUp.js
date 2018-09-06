@@ -1,18 +1,16 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import {StyleSheet, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
+import {styles} from './styles'
+import {constants} from "./constants";
 
-type Props = {};
 
 const SignUp = props =>
     <View>
-        <Text>Test Text</Text>
+        <Text>SignUp</Text>
     </View>;
 
 
-
 SignUp.propTypes = {};
-
-const styles = StyleSheet.create({});
 
 export default SignUp;

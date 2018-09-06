@@ -4,12 +4,12 @@ import {Text, View} from 'react-native';
 import {styles} from './styles';
 import {constants} from "./constants";
 
-const ForgotPassword = props =>
+const AddChore = props =>
     <View>
-        <Text>ForgotPassword</Text>
+        <Text>AddChore</Text>
     </View>;
 
 
-ForgotPassword.propTypes = {};
+AddChore.propTypes = {};
 
-export default ForgotPassword;
+export default AddChore;

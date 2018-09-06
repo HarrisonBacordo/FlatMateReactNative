@@ -1,18 +1,20 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import {StyleSheet} from 'react-native';
+import {connect} from 'react-redux';
 import ForgotPassword from "./ForgotPassword";
 
 type Props = {};
 
-export class ForgotPasswordContainer extends Component<Props> {
+class ForgotPasswordContainer extends Component<Props> {
+
     render() {
-        return (
-            <ForgotPassword />
-        );
+        return <ForgotPassword/>
     }
 }
 
 ForgotPasswordContainer.propTypes = {};
 
-const styles = StyleSheet.create({});
+const mapStateToProps = state => ({
+    auth: state.auth,
+});
+
+export default connect(mapStateToProps, {})(ForgotPasswordContainer)

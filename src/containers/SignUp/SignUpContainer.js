@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import {StyleSheet} from 'react-native';
+import {connect} from 'react-redux';
 import SignUp from "./SignUp";
 
 type Props = {};
 
-export class SignUpContainer extends Component<Props> {
+class SignUpContainer extends Component<Props> {
+
     render() {
         return <SignUp/>
     }
@@ -13,4 +13,8 @@ export class SignUpContainer extends Component<Props> {
 
 SignUpContainer.propTypes = {};
 
-const styles = StyleSheet.create({});
+const mapStateToProps = state => ({
+    auth: state.auth,
+});
+
+export default connect(mapStateToProps, {})(SignUpContainer)

@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Text, View} from 'react-native';
-import {styles} from './styles';
+import {styles} from './styles'
 import {constants} from "./constants";
 
-const ForgotPassword = props =>
+
+const Reminders = props =>
     <View>
-        <Text>ForgotPassword</Text>
+        <Text>Reminders</Text>
     </View>;
 
 
-ForgotPassword.propTypes = {};
+Reminders.propTypes = {};
 
-export default ForgotPassword;
+export default Reminders;

@@ -1,5 +1,5 @@
 export const LOGIN = "Login";
-export const SIGNUP = "SignUp";
+export const SIGN_UP = "SignUp";
 export const FORGOT_PASSWORD = "ForgotPassword";
 
 
