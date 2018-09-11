@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {logIn} from '../../actions/authActions';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import Login from "./Login";
-import {bindActionCreators} from "redux";
 
 type Props = {};
+
 class LoginContainer extends Component<Props> {
     constructor() {
         super();
@@ -13,6 +13,22 @@ class LoginContainer extends Component<Props> {
             password: '',
         };
         this.onSubmit = this.onSubmit.bind(this);
+        this.onChangeEmail = this.onChangeEmail.bind(this);
+        this.onChangePassword = this.onChangePassword.bind(this);
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+        if (nextProps.auth.isLoggedIn) {
+            this.props.navigation.navigate('Chores');
+        }
+    }
+
+    onChangeEmail(text) {
+        this.setState({email: text});
+    }
+
+    onChangePassword(text) {
+        this.setState({password: text});
     }
 
     onSubmit(e) {
@@ -20,11 +36,17 @@ class LoginContainer extends Component<Props> {
             email: this.state.email,
             password: this.state.password,
         };
-        this.props.actions.logIn(loginData);
+        this.props.logIn(loginData);
     }
 
     render() {
-        return <Login onSubmit={this.onSubmit} navigation={this.props.navigation}/>
+        return <Login
+            emailValue={this.state.email}
+            passwordValue={this.state.password}
+            onChangeEmail={this.onChangeEmail}
+            onChangePassword={this.onChangePassword}
+            onSubmit={this.onSubmit}
+            navigation={this.props.navigation}/>
     }
 }
 
@@ -34,8 +56,4 @@ const mapStateToProps = state => ({
     auth: state.auth,
 });
 
-const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(logIn, dispatch),
-});
-
-export default connect (mapStateToProps, mapDispatchToProps)(LoginContainer)
+export default connect(mapStateToProps, {logIn})(LoginContainer)

@@ -27,8 +27,8 @@ export class TextField extends Component<Props> {
                     selectionColor={colors.primary}
                     underlineColorAndroid={colors.primary}
                     style={styles.textInputStyle}
-                    value={this.state.value}
-                    onChangeText={this.onChange}
+                    value={this.props.value}
+                    onChangeText={this.props.onChangeText}
                     placeholder={this.props.placeholder}/>
             </View>
         );

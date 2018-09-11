@@ -1,11 +1,31 @@
-import { LOG_IN, SIGN_UP, RESET_PASSWORD } from "../actions/types";
+import { LOG_IN, LOG_OUT, SIGN_UP, RESET_PASSWORD } from "../actions/types";
 
 const initialState = {
-
+    userId: '',
+    isLoggedIn: false,
 };
 
 export default function(state=initialState, action) {
     switch (action.type) {
+        case LOG_IN:
+            console.log("IN REDUCER");
+            return {
+                ...state,
+                userId: action.payload,
+                isLoggedIn: true,
+            };
+        case LOG_OUT:
+            return {
+                ...state,
+                userId: '',
+                isLoggedIn: false,
+            };
+        case SIGN_UP:
+            return {
+                ...state,
+                userId: action.payload,
+                isLoggedIn: true,
+            };
         default:
             return state;
     }

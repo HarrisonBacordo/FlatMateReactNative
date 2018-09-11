@@ -14,6 +14,7 @@ export const REMOVE_GROCERY = 'REMOVE_GROCERY';
 export const TOGGLE_GROCERY = 'TOGGLE_GROCERY';
 
 export const LOG_IN = 'LOG_IN';
+export const LOG_OUT = 'LOG_OUT';
 export const SIGN_UP = 'SIGN_UP';
 export const RESET_PASSWORD = 'RESET_PASSWORD';
 

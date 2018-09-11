@@ -1,4 +1,5 @@
-import {createStore, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
+import {composeWithDevTools} from 'remote-redux-devtools';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import * as firebase from 'firebase';
@@ -11,6 +12,8 @@ firebase.firestore();
 
 const initialState = {};
 const middleware = [thunk];
-const store = createStore(rootReducer, initialState, applyMiddleware(...middleware));
+const store = createStore(rootReducer, initialState, composeWithDevTools(
+    applyMiddleware(...middleware)
+));
 
 export default store;

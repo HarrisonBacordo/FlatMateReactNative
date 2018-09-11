@@ -12,22 +12,26 @@ const Login = props =>
         <Text style={styles.titleStyle}>FlatMate</Text>
         <TextField
             label={constants.emailLabel}
-            placeholder={constants.emailPlaceholder}/>
+            placeholder={constants.emailPlaceholder}
+            value={props.emailValue}
+            onChangeText={props.onChangeEmail}/>
         <TextField
             label={constants.passwordLabel}
-            placeholder={constants.passwordPlaceholder}/>
+            placeholder={constants.passwordPlaceholder}
+            value={props.passwordValue}
+            onChangeText={props.onChangePassword}/>
         <Button
             onPress={props.onSubmit}
             text={constants.loginButtonText}
-            color={colors.buttonColor} />
+            color={colors.buttonColor}/>
         <Button
             onPress={() => props.navigation.navigate('SignUp')}
             text={constants.signUpButtonText}
-            color={colors.buttonColor} />
+            color={colors.buttonColor}/>
         <Button
             onPress={() => props.navigation.navigate('ForgotPassword')}
             text={constants.forgotPasswordText}
-            color={colors.buttonColor} />
+            color={colors.buttonColor}/>
     </View>;
 
 Login.propTypes = {};
