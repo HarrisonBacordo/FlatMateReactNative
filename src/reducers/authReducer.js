@@ -1,4 +1,4 @@
-import {LOG_IN, LOG_OUT, SIGN_UP, RESET_PASSWORD, FETCH_CURRENT_FLATMATE_DATA} from "../actions/types";
+import {LOG_IN, LOG_OUT, SIGN_UP, RESET_PASSWORD} from "../actions/types";
 
 const initialState = {
     userId: '',
@@ -30,6 +30,9 @@ export default function(state=initialState, action) {
                 userId: action.payload,
                 isLoggedIn: true,
             };
+        case RESET_PASSWORD:
+            //TODO probably return something more logical here
+            return state;
         default:
             return state;
     }

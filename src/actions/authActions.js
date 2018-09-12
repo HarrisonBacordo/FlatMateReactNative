@@ -1,4 +1,4 @@
-import {LOG_IN, SIGN_UP, RESET_PASSWORD, FETCH_CURRENT_FLATMATE_DATA} from "./types";
+import {LOG_IN, SIGN_UP, RESET_PASSWORD} from "./types";
 import * as firebase from 'firebase';
 
 let auth = new firebase.auth();
@@ -21,8 +21,10 @@ export const signUp = (email, password) => dispatch => {
         );
 };
 
-export const resetPassword = () => dispatch => {
-
+export const resetPassword = (email) => dispatch => {
+    return auth.sendPasswordResetEmail(email).then(() =>
+        dispatch(notifyPasswordReset)
+    );
 };
 
 const authenticateUser = (email, password) => {
@@ -34,4 +36,10 @@ function setUserId(userId, actionType) {
         type: actionType,
         payload: userId,
     };
+}
+
+function notifyPasswordReset() {
+    return {
+        type: RESET_PASSWORD,
+    }
 }

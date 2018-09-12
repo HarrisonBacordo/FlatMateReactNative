@@ -20,8 +20,17 @@ export const fetchCurrentFlatmateData = (userId) => async dispatch => {
     });
 };
 
-export const fetchFlatmates = () => dispatch => {
-
+export const fetchFlatmates = (flatId) => async dispatch => {
+    const flatmateIds = {};
+    const query = firestore.collection('users').where('flatKey', '==', flatId);
+    const promise = await query.get();
+    promise.forEach(doc => {
+        flatmateIds[doc.id] = doc.data().fullName;
+    });
+    return dispatch({
+        type: FETCH_FLATMATES,
+        payload: flatmateIds,
+    })
 };
 
 export const createFlatmate = (userId, flatmateData) => dispatch => {

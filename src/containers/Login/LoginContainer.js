@@ -3,7 +3,7 @@ import {logIn} from '../../actions/authActions';
 import {connect} from 'react-redux';
 import Login from "./Login";
 import {fetchCurrentFlatmateData} from "../../actions/flatmateActions";
-import {fetchFlatData} from "../../actions/flatActions";
+import {fetchFlatData, newGrocery} from "../../actions/flatActions";
 
 type Props = {};
 
@@ -20,9 +20,9 @@ class LoginContainer extends Component<Props> {
     }
 
     componentWillUpdate(nextProps, nextState) {
-        // if (nextProps.auth.isLoggedIn) {
-        //     this.props.navigation.navigate('Chores');
-        // }
+        if (nextProps.auth.isLoggedIn) {
+            this.props.navigation.navigate('Chores');
+        }
     }
 
     onChangeEmail(text) {
@@ -39,10 +39,16 @@ class LoginContainer extends Component<Props> {
             password: this.state.password,
         };
         this.props.logIn(loginData).then(() =>
-            this.props.fetchUserData(this.props.auth.userId)
+            this.props.fetchCurrentFlatmateData(this.props.auth.userId)
         ).then(() =>
             this.props.fetchFlatData(this.props.flatmates.flatKey)
-        );
+        ).then(() => {
+            //TODO remove this block when done testing
+            this.props.newGrocery({
+                groceryName: 'Test grocery React',
+                completed: false,
+            })
+        });
     }
 
     render() {
@@ -63,4 +69,4 @@ const mapStateToProps = state => ({
     flatmates: state.flatmates
 });
 
-export default connect(mapStateToProps, {logIn, fetchUserData: fetchCurrentFlatmateData, fetchFlatData})(LoginContainer)
+export default connect(mapStateToProps, {logIn, fetchCurrentFlatmateData, fetchFlatData, newGrocery})(LoginContainer)
