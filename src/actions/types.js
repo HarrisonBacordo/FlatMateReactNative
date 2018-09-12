@@ -18,8 +18,10 @@ export const LOG_OUT = 'LOG_OUT';
 export const SIGN_UP = 'SIGN_UP';
 export const RESET_PASSWORD = 'RESET_PASSWORD';
 
+export const FETCH_FLAT_DATA = 'FETCH_FLAT_DATA';
 export const NEW_FLAT = 'NEW_FLAT';
 export const JOIN_FLAT = 'JOIN_FLAT';
 
-export const NEW_FLATMATE = 'NEW_FLATMATE';
+export const FETCH_CURRENT_FLATMATE_DATA = 'FETCH_CURRENT_FLATMATE_DATA';
 export const FETCH_FLATMATES = 'FETCH_FLATMATES';
+export const CREATE_FLATMATE = 'CREATE_FLATMATE';

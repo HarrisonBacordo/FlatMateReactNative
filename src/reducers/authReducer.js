@@ -1,14 +1,18 @@
-import { LOG_IN, LOG_OUT, SIGN_UP, RESET_PASSWORD } from "../actions/types";
+import {LOG_IN, LOG_OUT, SIGN_UP, RESET_PASSWORD, FETCH_CURRENT_FLATMATE_DATA} from "../actions/types";
 
 const initialState = {
     userId: '',
+    flatKey: 'Unassigned',
+    email: '',
+    firstName: '',
+    lastName: '',
+
     isLoggedIn: false,
 };
 
 export default function(state=initialState, action) {
     switch (action.type) {
         case LOG_IN:
-            console.log("IN REDUCER");
             return {
                 ...state,
                 userId: action.payload,

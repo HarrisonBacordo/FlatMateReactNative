@@ -38,4 +38,6 @@ export class TextField extends Component<Props> {
 TextField.propTypes = {
     label: PropTypes.string.isRequired,
     placeholder: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    onChangeText: PropTypes.func.isRequired
 };
