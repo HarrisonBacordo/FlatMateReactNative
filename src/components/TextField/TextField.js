@@ -7,18 +7,6 @@ import {styles} from './styles';
 type Props = {};
 
 export class TextField extends Component<Props> {
-    constructor() {
-        super();
-        this.state = {
-            value: ''
-        };
-        this.onChange = this.onChange.bind(this);
-    }
-
-    onChange(e) {
-        this.setState({'value': e});
-    }
-
     render() {
         return (
             <View style={styles.containerStyle}>

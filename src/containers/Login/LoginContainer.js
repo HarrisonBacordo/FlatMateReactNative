@@ -62,8 +62,6 @@ class LoginContainer extends Component<Props> {
     }
 }
 
-LoginContainer.propTypes = {};
-
 const mapStateToProps = state => ({
     auth: state.auth,
     flatmates: state.flatmates
