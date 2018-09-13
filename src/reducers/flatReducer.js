@@ -12,7 +12,6 @@ export default function(state=initialState, action) {
     let tempList;
     switch (action.type) {
         case FETCH_FLAT_DATA:
-            console.log(action);
             return {
                 ...state,
                 flatId: action.payload.flatId,

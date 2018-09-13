@@ -1,1 +1,0 @@
-export {ChoreList} from './ChoreList';

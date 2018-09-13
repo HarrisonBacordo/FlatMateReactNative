@@ -5,7 +5,7 @@ import {View} from "react-native";
 
 type Props = {};
 
-export class ChoreList extends Component<Props> {
+export class ChoresList extends Component<Props> {
 
     renderCards() {
         return this.props.chores.map(chore =>
@@ -25,6 +25,6 @@ export class ChoreList extends Component<Props> {
     }
 }
 
-ChoreList.propTypes = {
+ChoresList.propTypes = {
     chores: PropTypes.array.isRequired,
 };

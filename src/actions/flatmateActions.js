@@ -11,7 +11,7 @@ export const fetchCurrentFlatmateData = (userId) => async dispatch => {
         type: FETCH_CURRENT_FLATMATE_DATA,
         payload: {
             email: userDoc.get('email'),
-            flatKey: userDoc.get('flatKey'),
+            flatId: userDoc.get('flatKey'),
             firstName: userDoc.get('firstName'),
             lastName: userDoc.get('lastName'),
             fullName: userDoc.get('fullName'),
@@ -39,7 +39,7 @@ export const createFlatmate = (userId, flatmateData) => dispatch => {
         type: CREATE_FLATMATE,
         payload: {
             email: flatmateData.email,
-            flatKey: flatmateData.flatKey,
+            flatId: flatmateData.flatKey,
             firstName: flatmateData.firstName,
             lastName: flatmateData.lastName,
             fullName: flatmateData.fullName,

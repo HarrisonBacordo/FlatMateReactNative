@@ -12,8 +12,9 @@ class ChoresContainer extends Component<Props> {
 
     render() {
         //todo fix this
-        return <Chores
-            chores={this.props.flat.chores}/>
+        console.log(this.props.flat.chores);
+        return (<Chores
+            chores={this.props.flat.chores}/>)
     }
 }
 

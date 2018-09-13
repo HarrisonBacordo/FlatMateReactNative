@@ -51,7 +51,7 @@ class SignUpContainer extends Component<Props> {
             lastName: this.state.lastName,
             fullName: this.state.firstName + " " + this.state.lastName,
             email: this.state.email,
-            flatKey: 'Unassigned',
+            flatId: 'Unassigned',
             nudgeCount: 0,
         };
         this.props.signUp(this.state.email, this.state.password).then(() =>

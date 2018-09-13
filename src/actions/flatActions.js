@@ -26,11 +26,11 @@ export const joinFlat = (flatId) => dispatch => {
 
 export const fetchFlatData = (_flatId) => async dispatch => {
     currentFlatId = _flatId;
-    choresCollection = await firestore.collection(`flats/${currentFlatId}/chores`).get();
+    choresCollection = await firestore.collection(`flats/${_flatId}/chores`).get();
     const choresList = toList(choresCollection);
-    remindersCollection = await firestore.collection(`flats/${currentFlatId}/reminders`).get();
+    remindersCollection = await firestore.collection(`flats/${_flatId}/reminders`).get();
     const remindersList = toList(remindersCollection);
-    groceriesCollection = await firestore.collection(`flats/${currentFlatId}/groceries`).get();
+    groceriesCollection = await firestore.collection(`flats/${_flatId}/groceries`).get();
     const groceriesList = toList(groceriesCollection);
 
     return dispatch({

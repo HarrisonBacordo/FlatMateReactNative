@@ -2,7 +2,7 @@ import {CREATE_FLATMATE, FETCH_FLATMATES, FETCH_CURRENT_FLATMATE_DATA, JOIN_FLAT
 
 const initialState = {
     userId: '',
-    flatKey: 'Unassigned',
+    flatId: 'Unassigned',
     email: '',
     firstName: '',
     lastName: '',
@@ -14,11 +14,10 @@ export default function (state = initialState, action) {
     switch (action.type) {
         case FETCH_CURRENT_FLATMATE_DATA:
         case CREATE_FLATMATE:
-            console.log("IN REDUCER");
             return {
                 ...state,
                 email: action.payload.email,
-                flatKey: action.payload.flatId,
+                flatId: action.payload.flatId,
                 firstName: action.payload.firstName,
                 lastName: action.payload.lastName,
                 fullName: action.payload.fullName,
@@ -32,7 +31,7 @@ export default function (state = initialState, action) {
         case JOIN_FLAT:
             return {
                 ...state,
-                flatKey: action.payload.flatKey,
+                flatId: action.payload.flatKey,
             };
         default:
             return state;

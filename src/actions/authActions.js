@@ -1,4 +1,4 @@
-import {LOG_IN, SIGN_UP, RESET_PASSWORD} from "./types";
+import {LOG_IN, SIGN_UP, RESET_PASSWORD, FAIL} from "./types";
 import * as firebase from 'firebase';
 
 let auth = new firebase.auth();
@@ -41,5 +41,12 @@ function setUserId(userId, actionType) {
 function notifyPasswordReset() {
     return {
         type: RESET_PASSWORD,
+    }
+}
+
+function sendErrorMessage(error) {
+    return {
+        type: FAIL,
+        payload: error,
     }
 }

@@ -4,13 +4,16 @@ import {Text, View} from 'react-native';
 import {styles} from './styles';
 import {constants} from "./constants";
 import {Header} from "../../components/Header";
-import {ChoreList} from "../../components/ChoreList";
+import {ChoresList} from "../../components/ChoresList";
 
-const Chores = props =>
-    <View>
-        <Header title={constants.headerText}/>
-        <ChoreList cards={this.props.chores}/>
-    </View>;
+const Chores = props => {
+    return (
+        <View>
+            <Header title={constants.headerText}/>
+            <ChoresList chores={props.chores}/>
+        </View>
+    );
+};
 
 
 Chores.propTypes = {

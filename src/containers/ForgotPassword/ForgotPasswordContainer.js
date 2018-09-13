@@ -20,7 +20,6 @@ class ForgotPasswordContainer extends Component<Props> {
     }
 
     onSubmit(e) {
-        console.log("e");
         this.props.resetPassword(this.state.email);
     }
 

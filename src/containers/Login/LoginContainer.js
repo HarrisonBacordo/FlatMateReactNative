@@ -19,11 +19,11 @@ class LoginContainer extends Component<Props> {
         this.onChangePassword = this.onChangePassword.bind(this);
     }
 
-    componentWillUpdate(nextProps, nextState) {
-        if (nextProps.auth.isLoggedIn) {
-            this.props.navigation.navigate('Chores');
-        }
-    }
+    // componentWillUpdate(nextProps, nextState) {
+    //     if (nextProps.auth.isLoggedIn) {
+    //         this.props.navigation.navigate('Chores');
+    //     }
+    // }
 
     onChangeEmail(text) {
         this.setState({email: text});
@@ -33,22 +33,32 @@ class LoginContainer extends Component<Props> {
         this.setState({password: text});
     }
 
-    onSubmit(e) {
+    async onSubmit(e) {
         const loginData = {
             email: this.state.email,
             password: this.state.password,
         };
-        this.props.logIn(loginData).then(() =>
-            this.props.fetchCurrentFlatmateData(this.props.auth.userId)
-        ).then(() =>
-            this.props.fetchFlatData(this.props.flatmates.flatKey)
-        ).then(() => {
-            //TODO remove this block when done testing
-            this.props.newGrocery({
-                groceryName: 'Test grocery React',
-                completed: false,
+        const promise = await this.props.logIn(loginData);
+        if(promise !== undefined) {
+            this.props.fetchCurrentFlatmateData(this.props.auth.userId).then(() => {
+                this.props.fetchFlatData(this.props.flatmates.flatId).then(() => {
+                    this.props.navigation.navigate('Chores');
+                })
             })
-        });
+        }
+        // this.props.logIn(loginData).then(() =>
+        //     this.props.fetchCurrentFlatmateData(this.props.auth.userId)
+        // ).then(() => {
+        //         console.log(this.props.flatmates);
+        //         this.props.fetchFlatData(this.props.flatmates.flatId);
+        //     }
+        // ).then(() => {
+        //     //TODO remove this block when done testing
+        //     this.props.newGrocery({
+        //         groceryName: 'Test grocery React',
+        //         completed: false,
+        //     })
+        // });
     }
 
     render() {
@@ -64,7 +74,8 @@ class LoginContainer extends Component<Props> {
 
 const mapStateToProps = state => ({
     auth: state.auth,
-    flatmates: state.flatmates
+    flatmates: state.flatmates,
+    flat: state.flat,
 });
 
 export default connect(mapStateToProps, {logIn, fetchCurrentFlatmateData, fetchFlatData, newGrocery})(LoginContainer)

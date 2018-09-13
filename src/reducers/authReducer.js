@@ -2,7 +2,7 @@ import {LOG_IN, LOG_OUT, SIGN_UP, RESET_PASSWORD} from "../actions/types";
 
 const initialState = {
     userId: '',
-    flatKey: 'Unassigned',
+    flatId: 'Unassigned',
     email: '',
     firstName: '',
     lastName: '',

@@ -1,23 +1,16 @@
 import React from 'react';
-import {createStackNavigator} from 'react-navigation';
+import {createSwitchNavigator} from 'react-navigation';
 import * as screenNames from "../screenNames";
-import * as containers from "../../containers";
+import appNavigator from './mainNavigator';
+import authNavigator from "./authNavigator";
 
-
-const AppNavigator = createStackNavigator(
+const AppNavigator = createSwitchNavigator(
     {
-        [screenNames.LOGIN]: containers.Login,
-        [screenNames.SIGN_UP]: containers.SignUp,
-        [screenNames.FORGOT_PASSWORD]: containers.ForgotPassword,
-        [screenNames.CHORES]: containers.Chores,
-        [screenNames.ADD_CHORE]: containers.AddChore,
-        [screenNames.REMINDERS]: containers.Reminders,
-        [screenNames.ADD_REMINDER]: containers.AddReminder,
-        [screenNames.GROCERIES]: containers.Groceries,
-        [screenNames.ADD_GROCERY]: containers.AddGrocery,
+        [screenNames.AUTH]: authNavigator,
+        [screenNames.APP]: appNavigator,
     },
     {
-        initialRouteName: 'Login',
+        initialRouteName: 'Auth',
     }
 );
 
