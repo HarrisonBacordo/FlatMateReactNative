@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Chore} from "../Chore/Chore";
+import {View} from "react-native";
 
 type Props = {};
 
@@ -25,7 +26,5 @@ export class ChoreList extends Component<Props> {
 }
 
 ChoreList.propTypes = {
-    chores: PropTypes.list.isRequired,
+    chores: PropTypes.array.isRequired,
 };
-
-const styles = StyleSheet.create({});

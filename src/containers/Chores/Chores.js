@@ -14,7 +14,7 @@ const Chores = props =>
 
 
 Chores.propTypes = {
-    chores: PropTypes.list.isRequired,
+    chores: PropTypes.array.isRequired,
 };
 
 export default Chores;
