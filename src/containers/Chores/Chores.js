@@ -9,7 +9,6 @@ import {ChoresList} from "../../components/ChoresList";
 const Chores = props => {
     return (
         <View>
-            <Header title={constants.headerText}/>
             <ChoresList chores={props.chores}/>
         </View>
     );

@@ -8,6 +8,7 @@ import {CardSection} from "../Card/CardSection";
 type Props = {};
 
 export class Chore extends Component<Props> {
+
     render() {
         return (
             <Card>

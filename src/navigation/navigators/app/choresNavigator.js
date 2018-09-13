@@ -1,6 +1,6 @@
 import {createStackNavigator} from "react-navigation";
-import * as screenNames from "../screenNames";
-import * as containers from "../../containers";
+import * as screenNames from "../../screenNames";
+import * as containers from "../../../containers/index";
 
 export default createStackNavigator(
     {

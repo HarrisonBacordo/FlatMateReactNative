@@ -1,29 +1,15 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {TouchableOpacity, Text} from 'react-native';
-import {colors} from '../../config/colors'
+import {styles, buttonStyle} from "./styles";
 
 type Props = {};
 export class Button extends Component<Props> {
     render() {
-        const styles = {
-            buttonStyle: {
-                backgroundColor: this.props.color,
-                borderRadius: 5,
-                paddingHorizontal: 15,
-                paddingVertical: 8,
-                width: '50%',
-            },
-            textStyle: {
-                textAlign: 'center',
-                fontSize: 15,
-                color: colors.textColor,
-            }
 
-        };
 
         return (
-            <TouchableOpacity onPress={this.props.onPress} style={styles.buttonStyle}>
+            <TouchableOpacity onPress={this.props.onPress} style={buttonStyle(this.props.color)}>
                 <Text style={styles.textStyle}>{this.props.text.toUpperCase()}</Text>
             </TouchableOpacity>
         );
