@@ -14,11 +14,13 @@ export class Reminder extends Component<Props> {
         return (
             <Card>
                 <CardSection>
-                    <View style={styles.textContainer}>
-                        <Text>{this.props.reminderName}</Text>
-                        <Text>{this.props.reminderDate}</Text>
-                        <Text>{this.props.reminderInterval}</Text>
-                    </View>
+                    <Text>{this.props.reminderName}</Text>
+                </CardSection>
+                <CardSection>
+                    <Text>{this.props.reminderDate}</Text>
+                </CardSection>
+                <CardSection>
+                    <Text>{this.props.reminderInterval}</Text>
                 </CardSection>
             </Card>
         );

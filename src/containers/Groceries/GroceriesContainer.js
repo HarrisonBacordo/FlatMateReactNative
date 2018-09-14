@@ -20,14 +20,14 @@ class GroceriesContainer extends Component<Props> {
     };
 
     render() {
-        return <Groceries/>
+        return <Groceries groceries={this.props.flat.groceries}/>
     }
 }
 
 GroceriesContainer.propTypes = {};
 
 const mapStateToProps = state => ({
-    groceries: state.groceries,
+    flat: state.flat,
 });
 
 export default connect(mapStateToProps, {})(GroceriesContainer)

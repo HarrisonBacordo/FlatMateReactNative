@@ -1,18 +1,18 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Chore} from "../Chore/Chore";
 import {View} from "react-native";
+import {Grocery} from "../Grocery";
 
 type Props = {};
 
 export class GroceriesList extends Component<Props> {
 
     renderCards() {
-        return this.props.chores.map(chore =>
-            <Chore
-                choreName={chore.choreName}
-                flatmateAssigned={chore.flatmate}
-                choreInterval={chore.interval}/>
+        return this.props.groceries.map(grocery =>
+            <Grocery
+                key={grocery.id}
+                groceryName={grocery.groceryName}
+                isCompleted={grocery.completed}/>
         )
     }
 
@@ -26,5 +26,5 @@ export class GroceriesList extends Component<Props> {
 }
 
 GroceriesList.propTypes = {
-    chores: PropTypes.array.isRequired,
+    groceries: PropTypes.array.isRequired,
 };

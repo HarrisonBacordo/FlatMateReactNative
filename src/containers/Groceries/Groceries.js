@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Text, View} from 'react-native';
-import {styles} from './styles';
-import {constants} from "./constants";
+import {GroceriesList} from "../../components";
 
 const Groceries = props =>
     <View>
-        <Text>Groceries</Text>
+        <GroceriesList groceries={props.groceries}/>
     </View>;
 
 
-Groceries.propTypes = {};
+Groceries.propTypes = {
+    groceries: PropTypes.array.isRequired,
+};
 
 export default Groceries;
