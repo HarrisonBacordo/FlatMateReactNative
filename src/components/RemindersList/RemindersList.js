@@ -27,5 +27,5 @@ export class RemindersList extends Component<Props> {
 }
 
 RemindersList.propTypes = {
-    reminder: PropTypes.array.isRequired,
+    reminders: PropTypes.array.isRequired,
 };
