@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Text, View} from 'react-native';
+import {Text, ScrollView} from 'react-native';
 import {styles} from './styles'
 import {constants} from "./constants";
 import {RemindersList} from "../../components";
 
 
 const Reminders = props =>
-    <View>
+    <ScrollView>
         <RemindersList reminders={props.reminders}/>
-    </View>;
+    </ScrollView>;
 
 
 Reminders.propTypes = {

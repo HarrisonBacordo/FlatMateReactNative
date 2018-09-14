@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Text, View} from 'react-native';
+import {Text, ScrollView} from 'react-native';
 import {GroceriesList} from "../../components";
 
 const Groceries = props =>
-    <View>
+    <ScrollView>
         <GroceriesList groceries={props.groceries}/>
-    </View>;
+    </ScrollView>;
 
 
 Groceries.propTypes = {
