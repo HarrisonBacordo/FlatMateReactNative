@@ -1,4 +1,4 @@
-import {LOG_IN, SIGN_UP, RESET_PASSWORD, FAIL} from "./types";
+import {LOG_IN, SIGN_UP, RESET_PASSWORD, SIGN_OUT, FAIL} from "./types";
 import * as firebase from 'firebase';
 
 let auth = new firebase.auth();
@@ -27,6 +27,12 @@ export const resetPassword = (email) => dispatch => {
     );
 };
 
+export const signOut = () => dispatch => {
+    return auth.signOut().then(() =>
+        dispatch(notifySignOut)
+    );
+};
+
 const authenticateUser = (email, password) => {
     return auth.signInWithEmailAndPassword(email, password);
 };
@@ -41,6 +47,12 @@ function setUserId(userId, actionType) {
 function notifyPasswordReset() {
     return {
         type: RESET_PASSWORD,
+    }
+}
+
+function notifySignOut() {
+    return {
+        type: SIGN_OUT,
     }
 }
 

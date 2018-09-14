@@ -9,7 +9,7 @@ export const CHORES = "Chores";
 export const ADD_CHORE = "AddChore";
 
 export const GROCERIES_TAB = "GroceriesTab";
-export const GROCERIES = "Groceries";
+export const GROCERIES = "FlatInfo";
 export const ADD_GROCERY = "AddGrocery";
 
 export const REMINDERS_TAB = "RemindersTab";
@@ -20,4 +20,4 @@ export const MORE_TAB = "MoreTab";
 export const MORE = "More";
 export const NEW_FLAT = "NewFlat";
 export const JOIN_FLAT = "JoinFlat";
-export const FLAT_ID = "FlatID";
+export const FLAT_INFO = "FlatInfo";

@@ -7,3 +7,7 @@ export {default as Reminders} from "./Reminders";
 export {default as AddReminder} from "./AddReminder";
 export {default as Groceries} from "./Groceries";
 export {default as AddGrocery} from "./AddGrocery";
+export {default as More} from "./More";
+export {default as NewFlat} from "./NewFlat";
+export {default as JoinFlat} from "./JoinFlat";
+export {default as FlatInfo} from "./FlatInfo";

@@ -1,18 +1,19 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Chore} from "../Chore/Chore";
 import {View} from "react-native";
+import {Reminder} from "../Reminder";
 
 type Props = {};
 
 export class RemindersList extends Component<Props> {
 
     renderCards() {
-        return this.props.chores.map(chore =>
-            <Chore
-                choreName={chore.choreName}
-                flatmateAssigned={chore.flatmate}
-                choreInterval={chore.interval}/>
+        return this.props.reminders.map(reminder =>
+            <Reminder
+                key={reminder.id}
+                reminderName={reminder.reminderName}
+                reminderDate={reminder.reminderDate}
+                reminderInterval={reminder.interval}/>
         )
     }
 
@@ -26,5 +27,5 @@ export class RemindersList extends Component<Props> {
 }
 
 RemindersList.propTypes = {
-    chores: PropTypes.array.isRequired,
+    reminder: PropTypes.array.isRequired,
 };

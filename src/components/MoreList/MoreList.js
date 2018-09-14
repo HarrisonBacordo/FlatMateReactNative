@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Chore} from "../Chore/Chore";
 import {View} from "react-native";
+import {Button} from "../Button";
 
 type Props = {};
 
-export class ChoresList extends Component<Props> {
+export class MoreList extends Component<Props> {
 
     renderCards() {
         return this.props.chores.map(chore =>
@@ -20,12 +21,11 @@ export class ChoresList extends Component<Props> {
     render() {
         return (
             <View>
-                {this.renderCards()}
+                {Button}
             </View>
         );
     }
 }
 
-ChoresList.propTypes = {
-    chores: PropTypes.array.isRequired,
+MoreList.propTypes = {
 };

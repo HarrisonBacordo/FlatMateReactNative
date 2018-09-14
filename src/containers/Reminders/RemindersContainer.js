@@ -20,14 +20,14 @@ class RemindersContainer extends Component<Props> {
     };
 
     render() {
-        return <Reminders/>
+        return <Reminders reminders={this.props.flat.reminders}/>
     }
 }
 
 RemindersContainer.propTypes = {};
 
 const mapStateToProps = state => ({
-    reminders: state.reminders,
+    flat: state.flat,
 });
 
 export default connect(mapStateToProps, {})(RemindersContainer);
