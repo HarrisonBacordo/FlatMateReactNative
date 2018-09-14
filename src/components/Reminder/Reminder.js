@@ -19,9 +19,6 @@ export class Reminder extends Component<Props> {
                 <CardSection>
                     <Text>{this.props.reminderDate}</Text>
                 </CardSection>
-                <CardSection>
-                    <Text>{this.props.reminderInterval}</Text>
-                </CardSection>
             </Card>
         );
     }
@@ -38,5 +35,4 @@ export class Reminder extends Component<Props> {
 Reminder.propTypes = {
     reminderName: PropTypes.string.isRequired,
     reminderDate: PropTypes.string.isRequired,
-    reminderInterval: PropTypes.string.isRequired,
 };

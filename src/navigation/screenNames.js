@@ -6,11 +6,11 @@ export const FORGOT_PASSWORD = "ForgotPassword";
 export const APP = "App";
 export const CHORES_TAB = "ChoresTab";
 export const CHORES = "Chores";
-export const ADD_CHORE = "AddChore";
+export const ADD_CHORE = "AddReminder";
 
 export const GROCERIES_TAB = "GroceriesTab";
-export const GROCERIES = "FlatInfo";
-export const ADD_GROCERY = "AddGrocery";
+export const GROCERIES = "Groceries";
+export const ADD_GROCERY = "AddReminder";
 
 export const REMINDERS_TAB = "RemindersTab";
 export const REMINDERS = "Reminders";

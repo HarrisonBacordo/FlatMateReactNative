@@ -8,3 +8,6 @@ export {ChoresList} from './ChoresList';
 export {RemindersList} from  './RemindersList';
 export {GroceriesList} from './GroceriesList';
 export {MoreList} from './MoreList';
+export {AddChoreForm} from './AddChoreForm';
+export {AddGroceryForm} from './AddGroceryForm';
+export {AddReminderForm} from './AddReminderForm';

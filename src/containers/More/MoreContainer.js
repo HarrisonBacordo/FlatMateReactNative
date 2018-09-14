@@ -22,7 +22,7 @@ class MoreContainer extends Component<Props> {
     }
 
     _navigateToAddGrocery = () => {
-        this.props.navigation.navigate('AddGrocery');
+        this.props.navigation.navigate('AddReminder');
     };
 
     async onSignOut(e) {

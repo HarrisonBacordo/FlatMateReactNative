@@ -21,7 +21,7 @@ class ChoresContainer extends Component<Props> {
     }
 
     _navigateToAddChore = () => {
-        this.props.navigation.navigate('AddChore');
+        this.props.navigation.navigate('AddReminder');
     };
 
 
