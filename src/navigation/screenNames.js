@@ -18,6 +18,6 @@ export const ADD_REMINDER = "AddReminder";
 
 export const MORE_TAB = "MoreTab";
 export const MORE = "More";
-export const NEW_FLAT = "NewFlat";
+export const NEW_FLAT = "JoinFlat";
 export const JOIN_FLAT = "JoinFlat";
 export const FLAT_INFO = "FlatInfo";

@@ -11,3 +11,5 @@ export {MoreList} from './MoreList';
 export {AddChoreForm} from './AddChoreForm';
 export {AddGroceryForm} from './AddGroceryForm';
 export {AddReminderForm} from './AddReminderForm';
+export {NewFlatForm} from './NewFlatForm';
+export {JoinFlatForm} from './JoinFlatForm';

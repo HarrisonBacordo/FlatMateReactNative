@@ -3,31 +3,47 @@ import {connect} from 'react-redux';
 import JoinFlat from "./JoinFlat";
 import {headerStyle, headerStyleWithAddButton} from "../../styles/header";
 import {Button} from "react-native";
+import {newFlat} from "../../actions/flatActions";
 
 type Props = {};
 
 class JoinFlatContainer extends Component<Props> {
-    static navigationOptions = ({navigation}) => {
-        return headerStyleWithAddButton('JoinFlat', navigation.getParam('navigateToAddGrocery'));
+    static navigationOptions = () => {
+        return headerStyle('Join Flat');
     };
 
-    componentDidMount() {
-        this.props.navigation.setParams({navigateToAddGrocery: this._navigateToAddGrocery});
+    constructor() {
+        super();
+        this.state = {
+            flatId: '',
+            loading: false,
+        };
+        this.onChangeFlatId = this.onChangeFlatId.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
 
-    _navigateToAddGrocery = () => {
-        this.props.navigation.navigate('AddReminder');
-    };
+    onChangeFlatId(text) {
+        this.setState({flatId: text});
+    }
+
+    onSubmit(e) {
+        const promise = this.props.joinFlat(this.state.flatId);
+        if (promise !== undefined) {
+            this.props.navigation.navigate('Chores');
+        }
+    }
 
     render() {
-        return <JoinFlat/>
+        return <JoinFlat
+            flatIdValue={this.state.flatId}
+            onChangeFlatId={this.onChangeFlatId}
+            loading={this.state.loading}
+            onSubmit={this.onSubmit}/>
     }
 }
 
 JoinFlatContainer.propTypes = {};
 
-const mapStateToProps = state => ({
-    groceries: state.groceries,
-});
+const mapStateToProps = state => ({});
 
-export default connect(mapStateToProps, {})(JoinFlatContainer)
+export default connect(mapStateToProps, {joinFlat})(JoinFlatContainer)

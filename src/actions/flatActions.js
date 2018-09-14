@@ -16,7 +16,7 @@ let remindersCollection;
 let groceriesCollection;
 let currentFlatId;
 
-export const newFlat = (flatId) => dispatch => {
+export const newFlat = (flatName) => dispatch => {
 
 };
 
