@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import JoinFlat from "./JoinFlat";
 import {headerStyle, headerStyleWithAddButton} from "../../styles/header";
 import {Button} from "react-native";
-import {newFlat} from "../../actions/flatActions";
+import {joinFlat, newFlat} from "../../actions/flatActions";
 
 type Props = {};
 
