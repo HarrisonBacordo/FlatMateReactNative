@@ -15,6 +15,7 @@ class SignUpContainer extends Component<Props> {
             lastName: '',
             email: '',
             password: '',
+            loading: false,
         };
         this.onSubmit = this.onSubmit.bind(this);
         this.onChangeFirstName = this.onChangeFirstName.bind(this);
@@ -54,6 +55,7 @@ class SignUpContainer extends Component<Props> {
             flatId: 'Unassigned',
             nudgeCount: 0,
         };
+        this.setState({loading: true});
         this.props.signUp(this.state.email, this.state.password).then(() =>
             this.props.createFlatmate(this.props.auth.userId, signUpData)
         );
@@ -69,7 +71,8 @@ class SignUpContainer extends Component<Props> {
             onChangeLastName={this.onChangeLastName}
             onChangeEmail={this.onChangeEmail}
             onChangePassword={this.onChangePassword}
-            onSubmit={this.onSubmit}/>
+            onSubmit={this.onSubmit}
+            loading={this.state.loading}/>
     }
 }
 

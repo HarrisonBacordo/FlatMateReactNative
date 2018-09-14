@@ -1,24 +1,15 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Button} from 'react-native';
 import Chores from "./Chores";
-import {headerStyle} from "../../styles/header";
+import {headerStyleWithAddButton} from "../../styles/header";
 import {colors} from "../../config/colors";
+import {Button} from "../../components/Button";
 
 type Props = {};
 
 class ChoresContainer extends Component<Props> {
     static navigationOptions = ({navigation}) => {
-        return {
-            ...headerStyle('Chores'),
-            headerRight: (
-                <Button
-                    onPress={navigation.getParam('navigateToAddChore')}
-                    title="Add"
-                    color='transparent'
-                />
-            ),
-        }
+        return headerStyleWithAddButton('Chores', navigation.getParam('navigateToAddChore'));
     };
 
     constructor() {

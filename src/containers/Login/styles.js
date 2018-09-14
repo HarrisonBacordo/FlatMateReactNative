@@ -2,10 +2,14 @@ import {StyleSheet} from "react-native";
 import {colors} from "../../config/colors";
 
 export const styles = StyleSheet.create({
-    cardContainerStyle: {
-        alignItems: 'center',
+    containerStyle: {
+        height: '100%',
         justifyContent: 'center',
         backgroundColor: colors.primary,
+    },
+    bannerContainer: {
+        alignItems: 'center',
+        marginBottom: '5%',
     },
     titleStyle: {
         color: colors.offWhite,

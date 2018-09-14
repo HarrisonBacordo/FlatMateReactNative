@@ -5,33 +5,23 @@ import {Button, TextField} from "../../components/index";
 import {colors} from "../../config/colors";
 import {constants} from "./constants";
 import {styles} from "./styles";
+import {LoginForm} from "../../components";
 
 const Login = props =>
     <View style={styles.containerStyle}>
-        <Image source={require('../../assets/ic_launcher.png')}/>
-        <Text style={styles.titleStyle}>FlatMate</Text>
-        <TextField
-            label={constants.emailLabel}
-            placeholder={constants.emailPlaceholder}
-            value={props.emailValue}
-            onChangeText={props.onChangeEmail}/>
-        <TextField
-            label={constants.passwordLabel}
-            placeholder={constants.passwordPlaceholder}
-            value={props.passwordValue}
-            onChangeText={props.onChangePassword}/>
-        <Button
-            onPress={props.onSubmit}
-            text={constants.loginButtonText}
-            color={colors.buttonColor}/>
-        <Button
-            onPress={() => props.navigation.navigate('SignUp')}
-            text={constants.signUpButtonText}
-            color={colors.buttonColor}/>
-        <Button
-            onPress={() => props.navigation.navigate('ForgotPassword')}
-            text={constants.forgotPasswordText}
-            color={colors.buttonColor}/>
+        <View style={styles.bannerContainer}>
+            <Image source={require('../../assets/ic_launcher.png')}/>
+            <Text style={styles.titleStyle}>FlatMate</Text>
+        </View>
+        <LoginForm
+            onSubmit={props.onSubmit}
+            onChangeEmail={props.onChangeEmail}
+            onChangePassword={props.onChangePassword}
+            emailValue={props.emailValue}
+            passwordValue={props.passwordValue}
+            loading={props.loading}
+            onSignUpPressed={() => props.navigation.navigate('SignUp')}/>
+        <Button onPress={() => props.navigation.navigate('ForgotPassword')} text={constants.forgotPasswordText} color={colors.transparent}/>
     </View>;
 
 Login.propTypes = {};

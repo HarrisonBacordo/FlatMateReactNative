@@ -6,35 +6,23 @@ import {constants} from "./constants";
 import {TextField} from "../../components/TextField";
 import {Button} from "../../components/Button";
 import {colors} from "../../config/colors";
+import {SignUpForm} from "../../components";
 
 
 const SignUp = props =>
-    <View>
-        <Text>SignUp</Text>
-        <TextField
-            label={constants.firstNameLabel}
-            placeholder={constants.firstNamePlaceholder}
-            value={props.firstNameValue}
-            onChangeText={props.onChangeFirstName}/>
-        <TextField
-            label={constants.lastNameLabel}
-            placeholder={constants.lastNamePlaceholder}
-            value={props.lastNameValue}
-            onChangeText={props.onChangeLastName}/>
-        <TextField
-            label={constants.emailLabel}
-            placeholder={constants.emailPlaceholder}
-            value={props.emailValue}
-            onChangeText={props.onChangeEmail}/>
-        <TextField
-            label={constants.passwordLabel}
-            placeholder={constants.passwordPlaceholder}
-            value={props.passwordValue}
-            onChangeText={props.onChangePassword}/>
-        <Button
-            onPress={props.onSubmit}
-            text={constants.signUpButtonText}
-            color={colors.buttonColor}/>
+    <View style={styles.containerStyle}>
+        <Text style={styles.titleStyle}>{constants.signUpTitle}</Text>
+            <SignUpForm
+                onSubmit={props.onSubmit}
+                onChangeFirstName={props.onChangeFirstName}
+                onChangeLastName={props.onChangeLastName}
+                onChangeEmail={props.onChangeEmail}
+                onChangePassword={props.onChangePassword}
+                firstNameValue={props.firstNameValue}
+                lastNameValue={props.lastNameValue}
+                emailValue={props.emailValue}
+                passwordValue={props.passwordValue}
+                loading={props.loading}/>
     </View>;
 
 

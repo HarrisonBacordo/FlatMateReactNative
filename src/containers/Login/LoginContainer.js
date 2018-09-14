@@ -13,17 +13,12 @@ class LoginContainer extends Component<Props> {
         this.state = {
             email: '',
             password: '',
+            loading: false,
         };
         this.onSubmit = this.onSubmit.bind(this);
         this.onChangeEmail = this.onChangeEmail.bind(this);
         this.onChangePassword = this.onChangePassword.bind(this);
     }
-
-    // componentWillUpdate(nextProps, nextState) {
-    //     if (nextProps.auth.isLoggedIn) {
-    //         this.props.navigation.navigate('Chores');
-    //     }
-    // }
 
     onChangeEmail(text) {
         this.setState({email: text});
@@ -38,6 +33,7 @@ class LoginContainer extends Component<Props> {
             email: this.state.email,
             password: this.state.password,
         };
+        this.setState({loading: true});
         const promise = await this.props.logIn(loginData);
         if(promise !== undefined) {
             this.props.fetchCurrentFlatmateData(this.props.auth.userId).then(() => {
@@ -46,19 +42,6 @@ class LoginContainer extends Component<Props> {
                 })
             })
         }
-        // this.props.logIn(loginData).then(() =>
-        //     this.props.fetchCurrentFlatmateData(this.props.auth.userId)
-        // ).then(() => {
-        //         console.log(this.props.flatmates);
-        //         this.props.fetchFlatData(this.props.flatmates.flatId);
-        //     }
-        // ).then(() => {
-        //     //TODO remove this block when done testing
-        //     this.props.newGrocery({
-        //         groceryName: 'Test grocery React',
-        //         completed: false,
-        //     })
-        // });
     }
 
     render() {
@@ -68,6 +51,7 @@ class LoginContainer extends Component<Props> {
             onChangeEmail={this.onChangeEmail}
             onChangePassword={this.onChangePassword}
             onSubmit={this.onSubmit}
+            loading={this.state.loading}
             navigation={this.props.navigation}/>
     }
 }

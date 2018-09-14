@@ -12,6 +12,7 @@ export class TextField extends Component<Props> {
             <View style={styles.containerStyle}>
                 <Text style={styles.labelStyle}>{this.props.label}</Text>
                 <TextInput
+                    secureTextEntry={this.props.isPassword}
                     selectionColor={colors.primary}
                     underlineColorAndroid={colors.primary}
                     style={styles.textInputStyle}
@@ -23,9 +24,14 @@ export class TextField extends Component<Props> {
     }
 }
 
+TextField.defaultProps = {
+    isPassword: false,
+};
+
 TextField.propTypes = {
     label: PropTypes.string.isRequired,
     placeholder: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
-    onChangeText: PropTypes.func.isRequired
+    onChangeText: PropTypes.func.isRequired,
+    isPassword: PropTypes.bool,
 };

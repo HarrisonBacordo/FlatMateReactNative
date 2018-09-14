@@ -3,22 +3,13 @@ import PropTypes from 'prop-types';
 import {Text, View} from 'react-native';
 import {styles} from './styles';
 import {constants} from "./constants";
-import {TextField} from "../../components/TextField";
-import {Button} from "../../components/Button";
 import {colors} from "../../config/colors";
+import {ForgotPasswordForm} from "../../components";
 
 const ForgotPassword = props =>
-    <View>
-        <Text>{constants.forgotPasswordText}</Text>
-        <TextField
-            label={constants.emailLabel}
-            placeholder={constants.emailPlaceholder}
-            value={props.emailValue}
-            onChangeText={props.onChangeEmail}/>
-        <Button
-            onPress={props.onSubmit}
-            text={constants.buttonText}
-            color={colors.buttonColor}/>
+    <View style={styles.containerStyle}>
+        <Text style={styles.titleStyle}>{constants.forgotPasswordText}</Text>
+        <ForgotPasswordForm onSubmit={props.onSubmit} onChangeEmail={props.onChangeEmail} emailValue={props.emailValue}/>
     </View>;
 
 

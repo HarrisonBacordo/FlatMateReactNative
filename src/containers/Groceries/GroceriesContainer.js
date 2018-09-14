@@ -1,23 +1,14 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Groceries from "./Groceries";
-import {headerStyle} from "../../styles/header";
+import {headerStyle, headerStyleWithAddButton} from "../../styles/header";
 import {Button} from "react-native";
 
 type Props = {};
 
 class GroceriesContainer extends Component<Props> {
     static navigationOptions = ({navigation}) => {
-        return {
-            ...headerStyle('Groceries'),
-            headerRight: (
-                <Button
-                    onPress={navigation.getParam('navigateToAddGrocery')}
-                    title="Add"
-                    color='transparent'
-                />
-            ),
-        }
+        return headerStyleWithAddButton('Groceries', navigation.getParam('navigateToAddGrocery'));
     };
 
     componentDidMount() {

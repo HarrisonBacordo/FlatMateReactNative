@@ -11,5 +11,16 @@ export const AuthNavigator = createStackNavigator(
     },
     {
         initialRouteName: 'Login',
+        navigationOptions: {
+            headerTransparent: {
+                position: 'absolute',
+                top: 0,
+                left: 0
+            },
+            headerBackTitleStyle: {
+                opacity: 0,
+            },
+            headerTintColor: '#fff'
+        }
     }
 );

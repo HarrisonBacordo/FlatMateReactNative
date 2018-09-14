@@ -25,7 +25,7 @@ class ForgotPasswordContainer extends Component<Props> {
 
     render() {
         return <ForgotPassword
-            emailValue={this.state.emailValue}
+            emailValue={this.state.email}
             onChangeEmail={this.onChangeEmail}
             onSubmit={this.onSubmit}/>
     }

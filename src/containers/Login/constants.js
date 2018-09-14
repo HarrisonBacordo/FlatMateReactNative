@@ -1,4 +1,5 @@
 export const constants = {
+    iconUri: '../../assets/ic_launcher.png',
     emailLabel: 'Email',
     passwordLabel: 'Password',
     emailPlaceholder: 'example@domain.com',
