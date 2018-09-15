@@ -13,7 +13,6 @@ type Props = {};
 
 export class SignUpForm extends Component<Props> {
     renderButton() {
-        //FIXME form collapses when loading is true
         if (this.props.loading) {
             return (
                 <CardSection>
@@ -23,7 +22,7 @@ export class SignUpForm extends Component<Props> {
         } else {
             return (
                 <CardSection>
-                    <Button onPress={this.props.onSubmit} text={"Sign Up"} color={colors.buttonColor}/>
+                    <Button onPress={this.props.onSubmit} text={"Submit"} color={colors.buttonColor}/>
                 </CardSection>
             );
         }
@@ -31,19 +30,23 @@ export class SignUpForm extends Component<Props> {
 
     render() {
         return (
-            <View style={styles.containerStyle}>
+            <View>
                 <Card>
                     <CardSection>
-                        <TextField label={"First Name"} placeholder={"John"} value={this.props.firstNameValue} onChangeText={this.props.onChangeFirstName}/>
+                        <TextField label={"First Name"} placeholder={"John"} value={this.props.firstNameValue}
+                                   onChangeText={this.props.onChangeFirstName}/>
                     </CardSection>
                     <CardSection>
-                        <TextField label={"Last Name"} placeholder={"Appleseed"} value={this.props.lastNameValue} onChangeText={this.props.onChangeLastName}/>
+                        <TextField label={"Last Name"} placeholder={"Appleseed"} value={this.props.lastNameValue}
+                                   onChangeText={this.props.onChangeLastName}/>
                     </CardSection>
                     <CardSection>
-                        <TextField label={"Email"} placeholder={"example@domain.com"} value={this.props.emailValue} onChangeText={this.props.onChangeEmail}/>
+                        <TextField label={"Email"} placeholder={"example@domain.com"} value={this.props.emailValue}
+                                   onChangeText={this.props.onChangeEmail}/>
                     </CardSection>
                     <CardSection>
-                        <TextField isPassword label={"Password"} placeholder={"Password here"} value={this.props.passwordValue} onChangeText={this.props.onChangePassword}/>
+                        <TextField isPassword label={"Password"} placeholder={"Password here"}
+                                   value={this.props.passwordValue} onChangeText={this.props.onChangePassword}/>
                     </CardSection>
                     {this.renderButton()}
                 </Card>

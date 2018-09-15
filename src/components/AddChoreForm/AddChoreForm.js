@@ -13,7 +13,6 @@ type Props = {};
 
 export class AddChoreForm extends Component<Props> {
     renderButton() {
-        //FIXME form collapses when loading is true
         if (this.props.loading) {
             return (
                 <CardSection>

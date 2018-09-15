@@ -34,8 +34,10 @@ class NewFlatContainer extends Component<Props> {
         this.setState({loading: true});
         const promise = await this.props.newFlat(data);
         if (promise !== undefined) {
-            await this.props.fetchFlatData(this.props.flatmates.flatId);
-            this.props.navigation.navigate('Chores');
+            await this.props.fetchFlatData(this.props.flatmates.flatId).then(() => {
+                this.setState({loading: false});
+                this.props.navigation.navigate('Chores');
+            })
         }
     }
 

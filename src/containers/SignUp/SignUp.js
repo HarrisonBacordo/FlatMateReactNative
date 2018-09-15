@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Text, View} from 'react-native';
+import {Image, Text, View} from 'react-native';
 import {styles} from './styles'
 import {constants} from "./constants";
 import {TextField} from "../../components/TextField";
@@ -11,18 +11,20 @@ import {SignUpForm} from "../../components";
 
 const SignUp = props =>
     <View style={styles.containerStyle}>
-        <Text style={styles.titleStyle}>{constants.signUpTitle}</Text>
-            <SignUpForm
-                onSubmit={props.onSubmit}
-                onChangeFirstName={props.onChangeFirstName}
-                onChangeLastName={props.onChangeLastName}
-                onChangeEmail={props.onChangeEmail}
-                onChangePassword={props.onChangePassword}
-                firstNameValue={props.firstNameValue}
-                lastNameValue={props.lastNameValue}
-                emailValue={props.emailValue}
-                passwordValue={props.passwordValue}
-                loading={props.loading}/>
+        <View style={styles.bannerContainer}>
+            <Text style={styles.titleStyle}>{constants.signUpTitle}</Text>
+        </View>
+        <SignUpForm
+            onSubmit={props.onSubmit}
+            onChangeFirstName={props.onChangeFirstName}
+            onChangeLastName={props.onChangeLastName}
+            onChangeEmail={props.onChangeEmail}
+            onChangePassword={props.onChangePassword}
+            firstNameValue={props.firstNameValue}
+            lastNameValue={props.lastNameValue}
+            emailValue={props.emailValue}
+            passwordValue={props.passwordValue}
+            loading={props.loading}/>
     </View>;
 
 

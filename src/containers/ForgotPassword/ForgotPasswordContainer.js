@@ -10,6 +10,7 @@ class ForgotPasswordContainer extends Component<Props> {
         super();
         this.state = {
             email: '',
+            loading: false,
         };
         this.onSubmit = this.onSubmit.bind(this);
         this.onChangeEmail = this.onChangeEmail.bind(this);
@@ -20,14 +21,20 @@ class ForgotPasswordContainer extends Component<Props> {
     }
 
     onSubmit(e) {
-        this.props.resetPassword(this.state.email);
+        this.setState({loading: true});
+        this.props.resetPassword(this.state.email).then(() => {
+            this.setState({loading: false});
+            alert('An password reset link has been sent to ' + this.state.email);
+
+        })
     }
 
     render() {
         return <ForgotPassword
             emailValue={this.state.email}
             onChangeEmail={this.onChangeEmail}
-            onSubmit={this.onSubmit}/>
+            onSubmit={this.onSubmit}
+            loading={this.state.loading}/>
     }
 }
 

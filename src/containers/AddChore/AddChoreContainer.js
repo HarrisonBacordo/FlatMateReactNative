@@ -42,6 +42,7 @@ class AddChoreContainer extends Component<Props> {
         this.setState({loading: true});
         const promise = this.props.newChore(chore);
         if (promise !== undefined) {
+            this.setState({loading: false});
             this.props.navigation.navigate('Chores');
         }
     }

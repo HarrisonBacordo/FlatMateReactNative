@@ -35,7 +35,7 @@ export class LoginForm extends Component<Props> {
 
     render() {
         return (
-            <View style={styles.containerStyle}>
+            <View>
                 <Card>
                     <CardSection>
                         <TextField label={"Email"} placeholder={"example@domain.com"} value={this.props.emailValue}

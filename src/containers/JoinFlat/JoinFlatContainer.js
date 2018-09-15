@@ -35,6 +35,7 @@ class JoinFlatContainer extends Component<Props> {
         const promise = await this.props.joinFlat(data);
         if (promise !== undefined) {
             await this.props.fetchFlatData(this.props.flatmates.flatId).then(() => {
+                this.setState({loading: false});
                 this.props.navigation.navigate('Chores');
             })
         }

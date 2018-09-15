@@ -8,8 +8,14 @@ import {ForgotPasswordForm} from "../../components";
 
 const ForgotPassword = props =>
     <View style={styles.containerStyle}>
-        <Text style={styles.titleStyle}>{constants.forgotPasswordText}</Text>
-        <ForgotPasswordForm onSubmit={props.onSubmit} onChangeEmail={props.onChangeEmail} emailValue={props.emailValue}/>
+        <View style={styles.bannerContainer}>
+            <Text style={styles.titleStyle}>{constants.forgotPasswordText}</Text>
+        </View>
+        <ForgotPasswordForm
+            onSubmit={props.onSubmit}
+            onChangeEmail={props.onChangeEmail}
+            emailValue={props.emailValue}
+            loading={props.loading}/>
     </View>;
 
 
@@ -17,6 +23,7 @@ ForgotPassword.propTypes = {
     emailValue: PropTypes.string.isRequired,
     onChangeEmail: PropTypes.func.isRequired,
     onSubmit: PropTypes.func.isRequired,
+    loading: PropTypes.bool.isRequired,
 };
 
 export default ForgotPassword;

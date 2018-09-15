@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import SignUp from "./SignUp";
 import {signUp} from "../../actions/authActions";
 import {createFlatmate} from "../../actions/flatmateActions";
-import Login from "../Login/Login";
 
 type Props = {};
 
@@ -22,12 +21,6 @@ class SignUpContainer extends Component<Props> {
         this.onChangeLastName = this.onChangeLastName.bind(this);
         this.onChangeEmail = this.onChangeEmail.bind(this);
         this.onChangePassword = this.onChangePassword.bind(this);
-    }
-
-    componentWillUpdate(nextProps, nextState) {
-        if (nextProps.auth.isLoggedIn) {
-            this.props.navigation.navigate('Chores');
-        }
     }
 
     onChangeFirstName(text) {
@@ -57,7 +50,10 @@ class SignUpContainer extends Component<Props> {
         };
         this.setState({loading: true});
         this.props.signUp(this.state.email, this.state.password).then(() =>
-            this.props.createFlatmate(this.props.auth.userId, signUpData)
+            this.props.createFlatmate(this.props.auth.userId, signUpData).then(() => {
+                this.setState({loading: false});
+                this.props.navigation.navigate('Chores');
+            })
         );
     }
 

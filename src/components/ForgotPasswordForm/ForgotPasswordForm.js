@@ -7,10 +7,31 @@ import {Card} from "../Card/Card";
 import {CardSection} from "../Card/CardSection";
 import {TextField} from "../TextField";
 import {Button} from "../Button";
+import {Spinner} from "../Spinner";
 
 type Props = {};
 
 export class ForgotPasswordForm extends Component<Props> {
+
+    renderButton() {
+        if (this.props.loading) {
+            return (
+                <CardSection>
+                    <Spinner size={'small'}/>
+                </CardSection>
+            );
+        } else {
+            return (
+                <CardSection>
+                    <Button
+                        onPress={this.props.onSubmit}
+                        text={"Submit"}
+                        color={colors.buttonColor}/>
+                </CardSection>
+            );
+        }
+    }
+
     render() {
         return (
             <View style={styles.containerStyle}>
@@ -22,12 +43,7 @@ export class ForgotPasswordForm extends Component<Props> {
                             value={this.props.emailValue}
                             onChangeText={this.props.onChangeEmail}/>
                     </CardSection>
-                    <CardSection>
-                        <Button
-                            onPress={this.props.onSubmit}
-                            text={"Submit"}
-                            color={colors.buttonColor}/>
-                    </CardSection>
+                    {this.renderButton()}
                 </Card>
             </View>
         );
@@ -38,4 +54,5 @@ ForgotPasswordForm.propTypes = {
     onSubmit: PropTypes.func.isRequired,
     onChangeEmail: PropTypes.func.isRequired,
     emailValue: PropTypes.string.isRequired,
+    loading: PropTypes.bool.isRequired,
 };

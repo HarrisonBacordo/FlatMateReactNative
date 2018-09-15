@@ -40,6 +40,7 @@ class AddReminderContainer extends Component<Props> {
         this.setState({loading: true});
         const promise = this.props.newReminder(reminder);
         if (promise !== undefined) {
+            this.setState({loading: false});
             this.props.navigation.navigate('Reminders');
         }
     }

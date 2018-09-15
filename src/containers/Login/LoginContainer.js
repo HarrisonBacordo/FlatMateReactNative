@@ -38,6 +38,7 @@ class LoginContainer extends Component<Props> {
         if(promise !== undefined) {
             this.props.fetchCurrentFlatmateData(this.props.auth.userId).then(() => {
                 this.props.fetchFlatData(this.props.flatmates.flatId).then(() => {
+                    this.setState({loading: false});
                     this.props.navigation.navigate('App');
                 })
             })

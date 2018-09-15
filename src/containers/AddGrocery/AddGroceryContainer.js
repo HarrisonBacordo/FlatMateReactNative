@@ -38,6 +38,7 @@ class AddGroceryContainer extends Component<Props> {
         this.setState({loading: true});
         const promise = this.props.newGrocery(grocery);
         if (promise !== undefined) {
+            this.setState({loading: false});
             this.props.navigation.navigate('Groceries');
         }
     }
