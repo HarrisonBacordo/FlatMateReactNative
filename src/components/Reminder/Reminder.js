@@ -5,6 +5,7 @@ import {Text, View} from "react-native";
 import {Card} from "../Card/Card";
 import {CardSection} from "../Card/CardSection";
 import {styles} from "../Chore/styles";
+import {Menu, MenuOption, MenuOptions} from "react-native-popup-menu";
 
 type Props = {};
 
@@ -13,7 +14,7 @@ export class Reminder extends Component<Props> {
     renderCards() {
         return (
             <Card>
-                <CardSection>
+                <CardSection moreIcon>
                     <Text>{this.props.reminderName}</Text>
                 </CardSection>
                 <CardSection>

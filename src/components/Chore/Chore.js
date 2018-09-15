@@ -12,30 +12,18 @@ export class Chore extends Component<Props> {
 
     render() {
         return (
-            <Menu onSelect={value => alert(`Selected number: ${value}`)}>
-                <MenuTrigger>
-                    <Card>
-                        <CardSection>
-                            <Text>{this.props.choreName}</Text>
-                        </CardSection>
-                        <CardSection>
-                            <Text>{this.props.choreInterval}</Text>
-                        </CardSection>
-                        <CardSection>
-                            <Image source={require('../../assets/ic_launcher.png')} style={styles.imageStyle}/>
-                            <Text>{this.props.flatmateAssigned}</Text>
-                        </CardSection>
-                    </Card>
-                </MenuTrigger>
-                <MenuOptions>
-                    <MenuOption value={1}>
-                        <Text style={{color: 'red'}}>Delete</Text>
-                    </MenuOption>
-                    <MenuOption value={2} text='Edit'/>
-
-                    <MenuOption value={3} text='cancel'/>
-                </MenuOptions>
-            </Menu>
+            <Card>
+                <CardSection moreIcon>
+                    <Text>{this.props.choreName}</Text>
+                </CardSection>
+                <CardSection>
+                    <Text>{this.props.choreInterval}</Text>
+                </CardSection>
+                <CardSection>
+                    <Image source={require('../../assets/ic_launcher.png')} style={styles.imageStyle}/>
+                    <Text>{this.props.flatmateAssigned}</Text>
+                </CardSection>
+            </Card>
         );
     }
 }

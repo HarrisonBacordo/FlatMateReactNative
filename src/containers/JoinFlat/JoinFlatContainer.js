@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import JoinFlat from "./JoinFlat";
 import {headerStyle, headerStyleWithAddButton} from "../../styles/header";
 import {Button} from "react-native";
-import {joinFlat, newFlat} from "../../actions/flatActions";
+import {joinFlat, fetchFlatData} from "../../actions/flatActions";
 
 type Props = {};
 
@@ -26,10 +26,17 @@ class JoinFlatContainer extends Component<Props> {
         this.setState({flatId: text});
     }
 
-    onSubmit(e) {
-        const promise = this.props.joinFlat(this.state.flatId);
+    async onSubmit(e) {
+        const data = {
+            flatId: this.state.flatId,
+            userId: this.props.auth.userId
+        };
+        this.setState({loading: true});
+        const promise = await this.props.joinFlat(data);
         if (promise !== undefined) {
-            this.props.navigation.navigate('Chores');
+            await this.props.fetchFlatData(this.props.flatmates.flatId).then(() => {
+                this.props.navigation.navigate('Chores');
+            })
         }
     }
 
@@ -44,6 +51,9 @@ class JoinFlatContainer extends Component<Props> {
 
 JoinFlatContainer.propTypes = {};
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+    auth: state.auth,
+    flatmates: state.flatmates,
+});
 
-export default connect(mapStateToProps, {joinFlat})(JoinFlatContainer)
+export default connect(mapStateToProps, {joinFlat, fetchFlatData})(JoinFlatContainer)

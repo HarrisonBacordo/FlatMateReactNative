@@ -25,4 +25,17 @@ export const styles = StyleSheet.create({
         borderColor: colors.offWhite,
         position: 'relative',
     },
+    cardSectionWithIconContainerStyle: {
+        borderBottomWidth: 1,
+        padding: 5,
+        backgroundColor: colors.offWhite,
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        borderColor: colors.offWhite,
+        position: 'relative',
+    },
+    iconStyle: {
+        width: 20,
+        height: 20,
+    }
 });

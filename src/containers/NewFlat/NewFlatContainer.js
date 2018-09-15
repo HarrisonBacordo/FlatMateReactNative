@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import NewFlat from "./NewFlat";
 import {headerStyle, headerStyleWithAddButton} from "../../styles/header";
 import {Button} from "react-native";
-import {newFlat} from "../../actions/flatActions";
+import {newFlat, fetchFlatData} from "../../actions/flatActions";
 
 type Props = {};
 
@@ -26,9 +26,15 @@ class NewFlatContainer extends Component<Props> {
         this.setState({flatName: text});
     }
 
-    onSubmit(e) {
-        const promise = this.props.newFlat(this.state.flatName);
+    async onSubmit(e) {
+        const data = {
+            flatName: this.state.flatName,
+            userId: this.props.auth.userId
+        };
+        this.setState({loading: true});
+        const promise = await this.props.newFlat(data);
         if (promise !== undefined) {
+            await this.props.fetchFlatData(this.props.flatmates.flatId);
             this.props.navigation.navigate('Chores');
         }
     }
@@ -44,6 +50,9 @@ class NewFlatContainer extends Component<Props> {
 
 NewFlatContainer.propTypes = {};
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+    auth: state.auth,
+    flatmates: state.flatmates,
+});
 
-export default connect(mapStateToProps, {newFlat})(NewFlatContainer)
+export default connect(mapStateToProps, {newFlat, fetchFlatData})(NewFlatContainer)

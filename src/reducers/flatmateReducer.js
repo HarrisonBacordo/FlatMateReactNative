@@ -1,4 +1,4 @@
-import {CREATE_FLATMATE, FETCH_FLATMATES, FETCH_CURRENT_FLATMATE_DATA, JOIN_FLAT} from "../actions/types";
+import {CREATE_FLATMATE, FETCH_FLATMATES, FETCH_CURRENT_FLATMATE_DATA, JOIN_FLAT, NEW_FLAT} from "../actions/types";
 
 const initialState = {
     userId: '',
@@ -31,7 +31,12 @@ export default function (state = initialState, action) {
         case JOIN_FLAT:
             return {
                 ...state,
-                flatId: action.payload.flatKey,
+                flatId: action.payload.flatId,
+            };
+        case NEW_FLAT:
+            return {
+                ...state,
+                flatId: action.payload.flatId,
             };
         default:
             return state;

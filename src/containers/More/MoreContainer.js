@@ -33,7 +33,7 @@ class MoreContainer extends Component<Props> {
     }
 
     render() {
-        return <More onSignOut={this.onSignOut}/>
+        return <More onSignOut={this.onSignOut} navigation={this.props.navigation}/>
     }
 }
 

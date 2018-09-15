@@ -16,12 +16,35 @@ let remindersCollection;
 let groceriesCollection;
 let currentFlatId;
 
-export const newFlat = (flatName) => dispatch => {
-
+export const newFlat = (data) => dispatch => {
+    const ref = firestore.collection('flats').doc();
+    const id = ref.id;
+    return firestore.doc(`users/${data.userId}`).update('flatKey', id).then(() =>
+        dispatch({
+            type: NEW_FLAT,
+            payload: {
+                flatId: id,
+                flatName: data.flatName,
+            },
+        })
+    )
 };
 
-export const joinFlat = (flatId) => dispatch => {
-
+export const joinFlat = (data) => async dispatch => {
+    const promise = await firestore.collection('flats').doc(data.flatId).get();
+    if (!promise.exists) {
+        return alert('Can\'t find flat');
+    } else {
+        return await firestore.doc(`users/${data.userId}`).update('flatKey', data.flatId)
+            .then(() =>
+                dispatch({
+                    type: JOIN_FLAT,
+                    payload: {
+                        flatId: data.flatId,
+                    },
+                })
+            )
+    }
 };
 
 export const fetchFlatData = (_flatId) => async dispatch => {

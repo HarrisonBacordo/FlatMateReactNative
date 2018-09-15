@@ -22,16 +22,13 @@ export default function(state=initialState, action) {
         case NEW_FLAT:
             return {
                 ...state,
-                flatId: action.payload,
+                flatId: action.payload.flatId,
+                flatName: action.payload.flatName
             };
         case JOIN_FLAT:
             return {
                 ...state,
                 flatId: action.payload.flatId,
-                flatName: action.payload.flatName,
-                chores: action.payload.chores,
-                reminders: action.payload.reminders,
-                groceries: action.payload.groceries,
             };
         case NEW_REMINDER:
             tempList = state.reminders;

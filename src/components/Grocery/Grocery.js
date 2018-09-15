@@ -4,6 +4,7 @@ import {Chore} from "../Chore/Chore";
 import {Text, View} from "react-native";
 import {CardSection} from "../Card/CardSection";
 import {Card} from "../Card/Card";
+import {Menu, MenuOption, MenuOptions, MenuTrigger} from "react-native-popup-menu";
 
 type Props = {};
 
@@ -12,7 +13,7 @@ export class Grocery extends Component<Props> {
     render() {
         return (
             <Card>
-                <CardSection>
+                <CardSection moreIcon>
                     <Text>{this.props.groceryName}</Text>
                 </CardSection>
                 <CardSection>
