@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Groceries from "./Groceries";
 import {headerStyle, headerStyleWithAddButton} from "../../styles/header";
-import {Button} from "react-native";
+import {deleteGrocery} from "../../actions/flatActions";
 
 type Props = {};
 
@@ -10,6 +10,11 @@ class GroceriesContainer extends Component<Props> {
     static navigationOptions = ({navigation}) => {
         return headerStyleWithAddButton('Groceries', navigation.getParam('navigateToAddGrocery'));
     };
+
+    constructor() {
+        super();
+        this.onDelete = this.onDelete.bind(this);
+    }
 
     componentDidMount() {
         this.props.navigation.setParams({navigateToAddGrocery: this._navigateToAddGrocery});
@@ -19,8 +24,14 @@ class GroceriesContainer extends Component<Props> {
         this.props.navigation.navigate('AddReminder');
     };
 
+    onDelete(groceryId) {
+        this.props.deleteGrocery(groceryId);
+    }
+
     render() {
-        return <Groceries groceries={this.props.flat.groceries}/>
+        return <Groceries
+            groceries={this.props.flat.groceries}
+            onDelete={this.onDelete}/>
     }
 }
 
@@ -30,4 +41,4 @@ const mapStateToProps = state => ({
     flat: state.flat,
 });
 
-export default connect(mapStateToProps, {})(GroceriesContainer)
+export default connect(mapStateToProps, {deleteGrocery: deleteGrocery})(GroceriesContainer)

@@ -10,11 +10,13 @@ export class CardSection extends Component<Props> {
 
     constructor() {
         super();
-
+        this.handleValue = this.handleValue.bind(this);
     }
 
-    onDelete() {
-    //    TODO FIGURE OUT WHAT TO PUT HERE
+    handleValue(value) {
+        if (value === 'delete') {
+            this.props.onDelete(this.props.objectId);
+        }
     }
 
     render() {
@@ -22,12 +24,12 @@ export class CardSection extends Component<Props> {
             return (
                 <View style={styles.cardSectionWithIconContainerStyle}>
                     {this.props.children}
-                    <Menu onSelect={value => alert(`Selected number: ${value}`)}>
+                    <Menu onSelect={this.handleValue}>
                         <MenuTrigger>
                             <Image source={require('../../assets/more_icon.png')} style={styles.iconStyle}/>
                         </MenuTrigger>
                         <MenuOptions>
-                            <MenuOption value={1}>
+                            <MenuOption value={'delete'}>
                                 <Text style={{color: 'red'}}>Delete</Text>
                             </MenuOption>
                             <MenuOption value={2} text='Edit'/>
@@ -51,7 +53,6 @@ CardSection.defaultProps = {
 
 CardSection.propTypes = {
     moreIcon: PropTypes.bool,
-    objectType: PropTypes.string,
-    objectKey: PropTypes.string,
-
+    objectId: PropTypes.string,
+    onDelete: PropTypes.func,
 };

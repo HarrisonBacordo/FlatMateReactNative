@@ -9,7 +9,9 @@ import {ChoresList} from "../../components/ChoresList";
 const Chores = props => {
     return (
         <ScrollView>
-            <ChoresList chores={props.chores}/>
+            <ChoresList
+                chores={props.chores}
+                onDelete={props.onDelete}/>
         </ScrollView>
     );
 };
@@ -17,6 +19,7 @@ const Chores = props => {
 
 Chores.propTypes = {
     chores: PropTypes.array.isRequired,
+    onDelete: PropTypes.func.isRequired,
 };
 
 export default Chores;

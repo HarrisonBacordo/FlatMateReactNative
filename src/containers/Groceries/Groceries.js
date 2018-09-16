@@ -5,12 +5,13 @@ import {GroceriesList} from "../../components";
 
 const Groceries = props =>
     <ScrollView>
-        <GroceriesList groceries={props.groceries}/>
+        <GroceriesList groceries={props.groceries} onDelete={props.onDelete}/>
     </ScrollView>;
 
 
 Groceries.propTypes = {
     groceries: PropTypes.array.isRequired,
+    onDelete: PropTypes.func.isRequired,
 };
 
 export default Groceries;

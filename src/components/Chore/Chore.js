@@ -4,7 +4,6 @@ import {Text, Image, View} from 'react-native';
 import {styles} from './styles';
 import {Card} from "../Card/Card";
 import {CardSection} from "../Card/CardSection";
-import {Menu, MenuTrigger, MenuOptions, MenuOption} from 'react-native-popup-menu'
 
 type Props = {};
 
@@ -13,7 +12,7 @@ export class Chore extends Component<Props> {
     render() {
         return (
             <Card>
-                <CardSection moreIcon>
+                <CardSection moreIcon onDelete={this.props.onDelete} objectId={this.props.id}>
                     <Text>{this.props.choreName}</Text>
                 </CardSection>
                 <CardSection>
@@ -29,8 +28,10 @@ export class Chore extends Component<Props> {
 }
 
 Chore.propTypes = {
+    id: PropTypes.string.isRequired,
     choreName: PropTypes.string.isRequired,
     flatmateAssigned: PropTypes.string.isRequired,
     choreInterval: PropTypes.string.isRequired,
+    onDelete: PropTypes.func.isRequired,
 
 };

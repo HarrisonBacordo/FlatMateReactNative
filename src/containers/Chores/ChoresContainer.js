@@ -4,6 +4,7 @@ import Chores from "./Chores";
 import {headerStyleWithAddButton} from "../../styles/header";
 import {colors} from "../../config/colors";
 import {Button} from "../../components/Button";
+import {deleteChore} from "../../actions/flatActions";
 
 type Props = {};
 
@@ -14,6 +15,7 @@ class ChoresContainer extends Component<Props> {
 
     constructor() {
         super();
+        this.onDelete = this.onDelete.bind(this);
     }
 
     componentDidMount() {
@@ -24,10 +26,16 @@ class ChoresContainer extends Component<Props> {
         this.props.navigation.navigate('AddReminder');
     };
 
+    onDelete(choreId) {
+        console.log(choreId);
+        this.props.deleteChore(choreId);
+    }
+
 
     render() {
         return (<Chores
-            chores={this.props.flat.chores}/>)
+            chores={this.props.flat.chores}
+            onDelete={this.onDelete}/>)
     }
 }
 
@@ -37,4 +45,4 @@ const mapStateToProps = state => ({
     flat: state.flat,
 });
 
-export default connect(mapStateToProps, {})(ChoresContainer)
+export default connect(mapStateToProps, {deleteChore: deleteChore})(ChoresContainer)

@@ -95,7 +95,7 @@ export const newChore = (choreData) => dispatch => {
     });
 };
 
-export const removeChore = (choreId) => dispatch => {
+export const deleteChore = (choreId) => dispatch => {
     return firestore.doc(`flats/${currentFlatId}/chores/${choreId}`).delete().then(() => {
         dispatch({
             type: REMOVE_CHORE,
@@ -134,7 +134,7 @@ export const newGrocery = (groceryData) => dispatch => {
     });
 };
 
-export const removeGrocery = (groceryId) => dispatch => {
+export const deleteGrocery = (groceryId) => dispatch => {
     return firestore.doc(`flats/${currentFlatId}/groceries/${groceryId}`).delete().then(() => {
         dispatch({
             type: REMOVE_GROCERY,
@@ -169,8 +169,8 @@ export const newReminder = (reminderData) => dispatch => {
     });
 };
 
-export const removeReminder = (reminderId) => dispatch => {
-    return firestore.doc(`flats/${currentFlatId}/reminders/${reminderId}`).remove().then(() => {
+export const deleteReminder = (reminderId) => dispatch => {
+    return firestore.doc(`flats/${currentFlatId}/reminders/${reminderId}`).delete().then(() => {
         dispatch({
             type: REMOVE_REMINDER,
             payload: reminderId,

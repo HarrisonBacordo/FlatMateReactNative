@@ -10,7 +10,9 @@ export class ChoresList extends Component<Props> {
     renderCards() {
         return this.props.chores.map(chore =>
             <Chore
+                id={chore.id}
                 key={chore.id}
+                onDelete={this.props.onDelete}
                 choreName={chore.choreName}
                 flatmateAssigned={chore.flatmate}
                 choreInterval={chore.interval}/>
@@ -28,4 +30,5 @@ export class ChoresList extends Component<Props> {
 
 ChoresList.propTypes = {
     chores: PropTypes.array.isRequired,
+    onDelete: PropTypes.func.isRequired,
 };

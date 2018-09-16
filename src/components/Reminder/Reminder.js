@@ -4,8 +4,6 @@ import {Chore} from "../Chore/Chore";
 import {Text, View} from "react-native";
 import {Card} from "../Card/Card";
 import {CardSection} from "../Card/CardSection";
-import {styles} from "../Chore/styles";
-import {Menu, MenuOption, MenuOptions} from "react-native-popup-menu";
 
 type Props = {};
 
@@ -13,8 +11,9 @@ export class Reminder extends Component<Props> {
 
     renderCards() {
         return (
+
             <Card>
-                <CardSection moreIcon>
+                <CardSection moreIcon onDelete={this.props.onDelete} objectId={this.props.id}>
                     <Text>{this.props.reminderName}</Text>
                 </CardSection>
                 <CardSection>
@@ -34,6 +33,8 @@ export class Reminder extends Component<Props> {
 }
 
 Reminder.propTypes = {
+    id: PropTypes.string.isRequired,
     reminderName: PropTypes.string.isRequired,
     reminderDate: PropTypes.string.isRequired,
+    onDelete: PropTypes.func.isRequired,
 };

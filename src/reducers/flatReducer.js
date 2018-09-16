@@ -1,4 +1,12 @@
-import {NEW_FLAT, JOIN_FLAT, FETCH_FLAT_DATA, NEW_GROCERY, NEW_CHORE, NEW_REMINDER} from "../actions/types";
+import {
+    NEW_FLAT,
+    JOIN_FLAT,
+    FETCH_FLAT_DATA,
+    NEW_GROCERY,
+    NEW_CHORE,
+    NEW_REMINDER,
+    REMOVE_CHORE, REMOVE_REMINDER, REMOVE_GROCERY
+} from "../actions/types";
 
 const initialState = {
     flatId: '',
@@ -50,6 +58,39 @@ export default function(state=initialState, action) {
             return {
                 ...state,
                 groceries: tempList,
+            };
+        case REMOVE_CHORE:
+            tempList = [];
+            state.chores.forEach(chore => {
+                if (chore.id !== action.payload) {
+                    tempList.push(chore);
+                }
+            });
+            return {
+                ...state,
+                chores: tempList
+            };
+        case REMOVE_REMINDER:
+            tempList = [];
+            state.reminders.forEach(chore => {
+                if (chore.id !== action.payload) {
+                    tempList.push(chore);
+                }
+            });
+            return {
+                ...state,
+                reminders: tempList
+            };
+        case REMOVE_GROCERY:
+            tempList = [];
+            state.groceries.forEach(chore => {
+                if (chore.id !== action.payload) {
+                    tempList.push(chore);
+                }
+            });
+            return {
+                ...state,
+                groceries: tempList
             };
         default:
             return state;
