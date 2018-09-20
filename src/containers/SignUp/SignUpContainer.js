@@ -39,7 +39,7 @@ class SignUpContainer extends Component<Props> {
         this.setState({password: text});
     }
 
-    onSubmit(e) {
+    async onSubmit(e) {
         const signUpData = {
             firstName: this.state.firstName,
             lastName: this.state.lastName,
@@ -49,12 +49,10 @@ class SignUpContainer extends Component<Props> {
             nudgeCount: 0,
         };
         this.setState({loading: true});
-        this.props.signUp(this.state.email, this.state.password).then(() =>
-            this.props.createFlatmate(this.props.auth.userId, signUpData).then(() => {
-                this.setState({loading: false});
-                this.props.navigation.navigate('Chores');
-            })
-        );
+        await this.props.signUp(this.state.email, this.state.password);
+        await this.props.createFlatmate(this.props.auth.userId, signUpData);
+        this.setState({loading: false});
+        this.props.navigation.navigate('Chores');
     }
 
     render() {

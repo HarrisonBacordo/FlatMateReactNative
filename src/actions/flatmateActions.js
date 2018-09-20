@@ -39,7 +39,7 @@ export const createFlatmate = (userId, flatmateData) => dispatch => {
         type: CREATE_FLATMATE,
         payload: {
             email: flatmateData.email,
-            flatId: flatmateData.flatKey,
+            flatId: flatmateData.flatId,
             firstName: flatmateData.firstName,
             lastName: flatmateData.lastName,
             fullName: flatmateData.fullName,
