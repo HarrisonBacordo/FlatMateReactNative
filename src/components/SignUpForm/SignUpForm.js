@@ -111,7 +111,7 @@ SignUpForm.propTypes = {
     onChangePictureUri: PropTypes.func.isRequired,
     onChangeEmail: PropTypes.func.isRequired,
     onChangePassword: PropTypes.func.isRequired,
-    pictureUriValue: PropTypes.string,
+    pictureUriValue: PropTypes.object,
     emailValue: PropTypes.string.isRequired,
     passwordValue: PropTypes.string.isRequired,
     loading: PropTypes.bool.isRequired,

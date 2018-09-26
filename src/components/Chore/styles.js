@@ -7,8 +7,8 @@ export const styles = StyleSheet.create({
        justifyContent: 'space-around',
    },
     imageStyle: {
-        width: 25,
-        height: 25,
+        width: 35,
+        height: 35,
         marginRight: 5,
     },
 });

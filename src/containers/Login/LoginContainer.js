@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {logIn} from '../../actions/authActions';
 import {connect} from 'react-redux';
 import Login from "./Login";
-import {fetchCurrentFlatmateData} from "../../actions/flatmateActions";
+import {fetchCurrentFlatmateData, fetchFlatmates} from "../../actions/flatmateActions";
 import {fetchFlatData, newGrocery} from "../../actions/flatActions";
 
 type Props = {};
@@ -38,8 +38,10 @@ class LoginContainer extends Component<Props> {
         if(promise !== undefined) {
             this.props.fetchCurrentFlatmateData(this.props.auth.userId).then(() => {
                 this.props.fetchFlatData(this.props.flatmates.flatId).then(() => {
-                    this.setState({loading: false});
-                    this.props.navigation.navigate('App');
+                    this.props.fetchFlatmates(this.props.flatmates.flatId).then(() => {
+                        this.setState({loading: false});
+                        this.props.navigation.navigate('App');
+                    });
                 })
             })
         }
@@ -63,4 +65,4 @@ const mapStateToProps = state => ({
     flat: state.flat,
 });
 
-export default connect(mapStateToProps, {logIn, fetchCurrentFlatmateData, fetchFlatData, newGrocery})(LoginContainer)
+export default connect(mapStateToProps, {logIn, fetchCurrentFlatmateData, fetchFlatData, newGrocery, fetchFlatmates})(LoginContainer)

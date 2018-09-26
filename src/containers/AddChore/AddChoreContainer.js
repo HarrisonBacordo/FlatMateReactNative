@@ -32,11 +32,13 @@ class AddChoreContainer extends Component<Props> {
     }
 
     onSubmit(e) {
+        const keys = Object.keys(this.props.flatmates.flatmates);
+        const chosenFlatmate = this.props.flatmates.flatmates[keys[ keys.length * Math.random() << 0]];
         const chore = {
             choreName: this.state.choreName,
             choreInterval: this.state.choreInterval,
             //TODO change this to be dynamic flatmate
-            flatmate: 'Harrison Bacordo',
+            flatmate: chosenFlatmate,
             isDone: false,
         };
         this.setState({loading: true});
@@ -60,6 +62,7 @@ class AddChoreContainer extends Component<Props> {
 
 const mapStateToProps = state => ({
     chores: state.chores,
+    flatmates: state.flatmates,
 });
 
 export default connect(mapStateToProps, {newChore})(AddChoreContainer)

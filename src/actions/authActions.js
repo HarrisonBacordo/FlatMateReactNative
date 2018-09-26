@@ -9,7 +9,7 @@ firestore.settings(settings);
 
 
 export const logIn = (loginData) => dispatch => {
-    return authenticateUser("harrisonbacordo@gmail.com", "Bobohobo1!")
+    return authenticateUser(loginData.email, loginData.password)
         .then(() =>
             dispatch(setUserId(auth.currentUser.uid, LOG_IN))
         );

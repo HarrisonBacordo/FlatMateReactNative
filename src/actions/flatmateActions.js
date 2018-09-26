@@ -11,8 +11,9 @@ export const fetchCurrentFlatmateData = (userId) => async dispatch => {
     return dispatch({
         type: FETCH_CURRENT_FLATMATE_DATA,
         payload: {
+            profPicUri: userDoc.get('profPicUri'),
             email: userDoc.get('email'),
-            flatId: userDoc.get('flatKey'),
+            flatId: userDoc.get('flatId'),
             firstName: userDoc.get('firstName'),
             lastName: userDoc.get('lastName'),
             fullName: userDoc.get('fullName'),
@@ -23,10 +24,10 @@ export const fetchCurrentFlatmateData = (userId) => async dispatch => {
 
 export const fetchFlatmates = (flatId) => async dispatch => {
     const flatmateIds = {};
-    const query = firestore.collection('users').where('flatKey', '==', flatId);
+    const query = firestore.collection('users').where('flatId', '==', flatId);
     const promise = await query.get();
     promise.forEach(doc => {
-        flatmateIds[doc.id] = doc.data().fullName;
+        flatmateIds[doc.id] = {fullName: doc.data().fullName, profPicUri: doc.data().profPicUri,};
     });
     return dispatch({
         type: FETCH_FLATMATES,

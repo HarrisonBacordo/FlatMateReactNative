@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import SignUp from "./SignUp";
 import {signUp, setupProfile} from "../../actions/authActions";
-import {createFlatmate} from "../../actions/flatmateActions";
+import {createFlatmate, fetchFlatmates} from "../../actions/flatmateActions";
 
 type Props = {};
 
@@ -61,6 +61,7 @@ class SignUpContainer extends Component<Props> {
         await this.props.signUp(this.state.email, this.state.password);
         await this.props.setupProfile(blob);
         await this.props.createFlatmate(this.props.auth.userId, signUpData);
+        await this.props.fetchFlatmates(this.props.auth.flatId);
         this.setState({loading: false});
         this.props.navigation.navigate('Chores');
     }
@@ -88,4 +89,4 @@ const mapStateToProps = state => ({
     auth: state.auth,
 });
 
-export default connect(mapStateToProps, {signUp, createFlatmate, setupProfile})(SignUpContainer)
+export default connect(mapStateToProps, {signUp, createFlatmate, setupProfile, fetchFlatmates})(SignUpContainer)

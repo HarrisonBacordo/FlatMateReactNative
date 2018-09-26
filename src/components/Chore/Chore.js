@@ -19,8 +19,8 @@ export class Chore extends Component<Props> {
                     <Text>{this.props.choreInterval}</Text>
                 </CardSection>
                 <CardSection>
-                    <Image source={{uri: this.props.profPicUri}} style={styles.imageStyle}/>
-                    <Text>{this.props.flatmateAssigned}</Text>
+                    <Image source={{uri: this.props.flatmateAssigned.profPicUri}} style={styles.imageStyle}/>
+                    <Text>{this.props.flatmateAssigned.fullName}</Text>
                 </CardSection>
             </Card>
         );
@@ -31,7 +31,7 @@ Chore.propTypes = {
     profPicUri: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     choreName: PropTypes.string.isRequired,
-    flatmateAssigned: PropTypes.string.isRequired,
+    flatmateAssigned: PropTypes.object.isRequired,
     choreInterval: PropTypes.string.isRequired,
     onDelete: PropTypes.func.isRequired,
 

@@ -31,7 +31,7 @@ const SignUp = props =>
 
 
 SignUp.propTypes = {
-    pictureUri: PropTypes.object.isRequired,
+    pictureUri: PropTypes.object,
     firstNameValue: PropTypes.string.isRequired,
     lastNameValue: PropTypes.string.isRequired,
     emailValue: PropTypes.string.isRequired,

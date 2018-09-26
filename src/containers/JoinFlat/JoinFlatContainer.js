@@ -4,6 +4,7 @@ import JoinFlat from "./JoinFlat";
 import {headerStyle, headerStyleWithAddButton} from "../../styles/header";
 import {Button} from "react-native";
 import {joinFlat, fetchFlatData} from "../../actions/flatActions";
+import {fetchFlatmates} from "../../actions/flatmateActions";
 
 type Props = {};
 
@@ -34,9 +35,11 @@ class JoinFlatContainer extends Component<Props> {
         this.setState({loading: true});
         const promise = await this.props.joinFlat(data);
         if (promise !== undefined) {
-            await this.props.fetchFlatData(this.props.flatmates.flatId).then(() => {
-                this.setState({loading: false});
-                this.props.navigation.navigate('Chores');
+            this.props.fetchFlatData(this.props.flatmates.flatId).then(() => {
+                this.props.fetchFlatmates(this.props.flatmates.flatId).then(() => {
+                    this.setState({loading: false});
+                    this.props.navigation.navigate('Chores');
+                });
             })
         }
     }
@@ -57,4 +60,4 @@ const mapStateToProps = state => ({
     flatmates: state.flatmates,
 });
 
-export default connect(mapStateToProps, {joinFlat, fetchFlatData})(JoinFlatContainer)
+export default connect(mapStateToProps, {joinFlat, fetchFlatData, fetchFlatmates})(JoinFlatContainer)
