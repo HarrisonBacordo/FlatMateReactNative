@@ -37,9 +37,8 @@ class AddChoreContainer extends Component<Props> {
         const chore = {
             choreName: this.state.choreName,
             choreInterval: this.state.choreInterval,
-            //TODO change this to be dynamic flatmate
             flatmate: chosenFlatmate,
-            isDone: false,
+            completed: false,
         };
         this.setState({loading: true});
         const promise = this.props.newChore(chore);

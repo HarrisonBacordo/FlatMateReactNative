@@ -5,7 +5,7 @@ import {
     NEW_GROCERY,
     NEW_CHORE,
     NEW_REMINDER,
-    REMOVE_CHORE, REMOVE_REMINDER, REMOVE_GROCERY
+    REMOVE_CHORE, REMOVE_REMINDER, REMOVE_GROCERY, TOGGLE_CHORE
 } from "../actions/types";
 
 const initialState = {
@@ -91,6 +91,21 @@ export default function(state=initialState, action) {
             return {
                 ...state,
                 groceries: tempList
+            };
+        case TOGGLE_CHORE:
+            tempList = [];
+            state.chores.forEach(chore => {
+                if (chore.id === action.payload.choreId) {
+                    let tempChore = chore;
+                    tempChore.completed = action.payload.value;
+                    tempList.push(tempChore);
+                } else {
+                    tempList.push(chore);
+                }
+            });
+            return {
+                ...state,
+                chores: tempList
             };
         default:
             return state;

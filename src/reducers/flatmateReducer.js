@@ -1,4 +1,11 @@
-import {CREATE_FLATMATE, FETCH_FLATMATES, FETCH_CURRENT_FLATMATE_DATA, JOIN_FLAT, NEW_FLAT} from "../actions/types";
+import {
+    CREATE_FLATMATE,
+    FETCH_FLATMATES,
+    FETCH_CURRENT_FLATMATE_DATA,
+    JOIN_FLAT,
+    NEW_FLAT,
+    NUDGE_CHORE
+} from "../actions/types";
 
 const initialState = {
     profPicUri: '',
@@ -24,6 +31,7 @@ export default function (state = initialState, action) {
                 lastName: action.payload.lastName,
                 fullName: action.payload.fullName,
                 nudgeCount: action.payload.nudgeCount,
+                userId: action.payload.userId,
             };
         case FETCH_FLATMATES:
             return {
@@ -39,6 +47,11 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 flatId: action.payload.flatId,
+            };
+        case NUDGE_CHORE:
+            return {
+                ...state,
+                nudgeCount: action.payload,
             };
         default:
             return state;

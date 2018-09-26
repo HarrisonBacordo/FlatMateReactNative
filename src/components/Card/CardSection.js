@@ -26,7 +26,7 @@ export class CardSection extends Component<Props> {
                     {this.props.children}
                     <Menu onSelect={this.handleValue}>
                         <MenuTrigger>
-                            <Image source={require('../../assets/more_icon.png')} style={styles.iconStyle}/>
+                            <Image source={require('../../assets/icons/more_icon.png')} style={styles.iconStyle}/>
                         </MenuTrigger>
                         <MenuOptions>
                             <MenuOption value={'delete'}>

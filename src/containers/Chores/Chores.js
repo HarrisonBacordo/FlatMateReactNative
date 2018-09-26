@@ -12,7 +12,10 @@ const Chores = props => {
             <ChoresList
                 chores={props.chores}
                 onDelete={props.onDelete}
-                profPicUri={props.profPicUri}/>
+                onNudge={props.onNudge}
+                onToggleChore={props.onToggleChore}
+                profPicUri={props.profPicUri}
+                currentFlatmateId={props.currentFlatmateId}/>
         </ScrollView>
     );
 };
@@ -20,8 +23,11 @@ const Chores = props => {
 
 Chores.propTypes = {
     profPicUri: PropTypes.string.isRequired,
+    currentFlatmateId: PropTypes.string.isRequired,
     chores: PropTypes.array.isRequired,
     onDelete: PropTypes.func.isRequired,
+    onNudge: PropTypes.func.isRequired,
+    onToggleChore: PropTypes.func.isRequired,
 };
 
 export default Chores;

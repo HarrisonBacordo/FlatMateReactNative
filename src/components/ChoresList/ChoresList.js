@@ -13,10 +13,14 @@ export class ChoresList extends Component<Props> {
                 id={chore.id}
                 key={chore.id}
                 onDelete={this.props.onDelete}
+                onNudge={this.props.onNudge}
+                onToggleChore={this.props.onToggleChore}
                 choreName={chore.choreName}
                 flatmateAssigned={chore.flatmate}
                 choreInterval={chore.interval}
-                profPicUri={this.props.profPicUri}/>
+                completed={chore.completed}
+                profPicUri={this.props.profPicUri}
+                currentFlatmateId={this.props.currentFlatmateId}/>
         )
     }
 
@@ -31,6 +35,9 @@ export class ChoresList extends Component<Props> {
 
 ChoresList.propTypes = {
     profPicUri: PropTypes.string.isRequired,
+    currentFlatmateId: PropTypes.string.isRequired,
     chores: PropTypes.array.isRequired,
     onDelete: PropTypes.func.isRequired,
+    onNudge: PropTypes.func.isRequired,
+    onToggleChore: PropTypes.func.isRequired,
 };

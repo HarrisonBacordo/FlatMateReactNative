@@ -6,7 +6,7 @@ import {
     REMOVE_CHORE,
     TOGGLE_CHORE,
     NEW_GROCERY,
-    REMOVE_GROCERY, TOGGLE_GROCERY, NEW_REMINDER, REMOVE_REMINDER
+    REMOVE_GROCERY, TOGGLE_GROCERY, NEW_REMINDER, REMOVE_REMINDER, NUDGE_CHORE
 } from "./types";
 import * as firebase from 'firebase';
 
@@ -105,15 +105,23 @@ export const deleteChore = (choreId) => dispatch => {
     });
 };
 
-export const nudgeChore = (choreData) => dispatch => {
-
+export const nudgeChore = (choreData) => async dispatch => {
+    const docSnapshot = await firestore.doc(`users/${choreData.id}`).get();
+    return docSnapshot.ref.update('nudgeCount', ++docSnapshot.data().nudgeCount).then(() =>
+    dispatch({
+        type: NUDGE_CHORE,
+        payload: docSnapshot.data().nudgeCount
+    }))
 };
 
 export const toggleChore = (choreId, value) => dispatch => {
     return firestore.doc(`flats/${currentFlatId}/chores/${choreId}`).update('completed', value).then(() => {
         dispatch({
             type: TOGGLE_CHORE,
-            payload: choreId,
+            payload: {
+                choreId: choreId,
+                value: value,
+            }
         })
     });
 };
