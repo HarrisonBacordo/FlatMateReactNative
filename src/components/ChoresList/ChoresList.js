@@ -15,7 +15,8 @@ export class ChoresList extends Component<Props> {
                 onDelete={this.props.onDelete}
                 choreName={chore.choreName}
                 flatmateAssigned={chore.flatmate}
-                choreInterval={chore.interval}/>
+                choreInterval={chore.interval}
+                profPicUri={this.props.profPicUri}/>
         )
     }
 
@@ -29,6 +30,7 @@ export class ChoresList extends Component<Props> {
 }
 
 ChoresList.propTypes = {
+    profPicUri: PropTypes.string.isRequired,
     chores: PropTypes.array.isRequired,
     onDelete: PropTypes.func.isRequired,
 };

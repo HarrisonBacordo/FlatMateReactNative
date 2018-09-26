@@ -11,13 +11,15 @@ const Chores = props => {
         <ScrollView>
             <ChoresList
                 chores={props.chores}
-                onDelete={props.onDelete}/>
+                onDelete={props.onDelete}
+                profPicUri={props.profPicUri}/>
         </ScrollView>
     );
 };
 
 
 Chores.propTypes = {
+    profPicUri: PropTypes.string.isRequired,
     chores: PropTypes.array.isRequired,
     onDelete: PropTypes.func.isRequired,
 };

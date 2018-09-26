@@ -20,6 +20,7 @@ class ChoresContainer extends Component<Props> {
 
     componentDidMount() {
         this.props.navigation.setParams({navigateToAddChore: this._navigateToAddChore});
+
     }
 
     _navigateToAddChore = () => {
@@ -35,7 +36,8 @@ class ChoresContainer extends Component<Props> {
     render() {
         return (<Chores
             chores={this.props.flat.chores}
-            onDelete={this.onDelete}/>)
+            onDelete={this.onDelete}
+            profPicUri={this.props.flatmates.profPicUri}/>)
     }
 }
 
@@ -43,6 +45,7 @@ ChoresContainer.propTypes = {};
 
 const mapStateToProps = state => ({
     flat: state.flat,
+    flatmates: state.flatmates
 });
 
 export default connect(mapStateToProps, {deleteChore: deleteChore})(ChoresContainer)

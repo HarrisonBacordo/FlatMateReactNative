@@ -1,6 +1,7 @@
 import {CREATE_FLATMATE, FETCH_FLATMATES, FETCH_CURRENT_FLATMATE_DATA, JOIN_FLAT, NEW_FLAT} from "../actions/types";
 
 const initialState = {
+    profPicUri: '',
     userId: '',
     flatId: 'Unassigned',
     email: '',
@@ -16,6 +17,7 @@ export default function (state = initialState, action) {
         case CREATE_FLATMATE:
             return {
                 ...state,
+                profPicUri: action.payload.profPicUri,
                 email: action.payload.email,
                 flatId: action.payload.flatId,
                 firstName: action.payload.firstName,

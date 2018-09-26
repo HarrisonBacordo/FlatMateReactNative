@@ -1,7 +1,8 @@
-import {LOG_IN, SIGN_UP, RESET_PASSWORD, SIGN_OUT, FAIL} from "./types";
+import {LOG_IN, SIGN_UP, SETUP_PROFILE, RESET_PASSWORD, SIGN_OUT, FAIL} from "./types";
 import * as firebase from 'firebase';
 
 let auth = new firebase.auth();
+let storage = new firebase.storage();
 let firestore = new firebase.firestore();
 const settings = {timestampsInSnapshots: true};
 firestore.settings(settings);
@@ -19,6 +20,17 @@ export const signUp = (email, password) => dispatch => {
         .then(() =>
             dispatch(setUserId(auth.currentUser.uid, SIGN_UP))
         );
+};
+
+export const setupProfile = (blob) => dispatch => {
+    let user = auth.currentUser;
+    let storageRef = storage.ref('profile_pictures/' + user.uid + '.jpg');
+    return storageRef.put(blob).then(() => {
+        dispatch({
+            type: SETUP_PROFILE
+        })
+    }).catch(error =>
+        console.log(error));
 };
 
 export const resetPassword = (email) => dispatch => {

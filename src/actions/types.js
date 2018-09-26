@@ -16,6 +16,7 @@ export const TOGGLE_GROCERY = 'TOGGLE_GROCERY';
 export const LOG_IN = 'LOG_IN';
 export const SIGN_OUT = 'LOG_OUT';
 export const SIGN_UP = 'SIGN_UP';
+export const SETUP_PROFILE = 'SETUP_PROFILE';
 export const RESET_PASSWORD = 'RESET_PASSWORD';
 
 export const FETCH_FLAT_DATA = 'FETCH_FLAT_DATA';

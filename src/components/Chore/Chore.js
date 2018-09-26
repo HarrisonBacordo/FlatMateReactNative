@@ -19,7 +19,7 @@ export class Chore extends Component<Props> {
                     <Text>{this.props.choreInterval}</Text>
                 </CardSection>
                 <CardSection>
-                    <Image source={require('../../assets/ic_launcher.png')} style={styles.imageStyle}/>
+                    <Image source={{uri: this.props.profPicUri}} style={styles.imageStyle}/>
                     <Text>{this.props.flatmateAssigned}</Text>
                 </CardSection>
             </Card>
@@ -28,6 +28,7 @@ export class Chore extends Component<Props> {
 }
 
 Chore.propTypes = {
+    profPicUri: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     choreName: PropTypes.string.isRequired,
     flatmateAssigned: PropTypes.string.isRequired,

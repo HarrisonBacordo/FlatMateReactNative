@@ -2,6 +2,7 @@ import {FETCH_FLATMATES, FETCH_CURRENT_FLATMATE_DATA, CREATE_FLATMATE} from "./t
 import * as firebase from 'firebase';
 
 let firestore = firebase.firestore();
+let storage = firebase.storage();
 const settings = {timestampsInSnapshots: true};
 firestore.settings(settings);
 
@@ -34,16 +35,28 @@ export const fetchFlatmates = (flatId) => async dispatch => {
 };
 
 export const createFlatmate = (userId, flatmateData) => dispatch => {
-    firestore.doc(`users/${userId}`).set({...flatmateData});
-    return dispatch({
-        type: CREATE_FLATMATE,
-        payload: {
+    let storageRef = storage.ref('profile_pictures/' + userId + '.jpg');
+    storageRef.getDownloadURL().then(uri => {
+        firestore.doc(`users/${userId}`).set({
+            profPicUri: uri,
             email: flatmateData.email,
             flatId: flatmateData.flatId,
             firstName: flatmateData.firstName,
             lastName: flatmateData.lastName,
             fullName: flatmateData.fullName,
             nudgeCount: flatmateData.nudgeCount,
-        },
+        });
+        return dispatch({
+            type: CREATE_FLATMATE,
+            payload: {
+                profPicUri: uri,
+                email: flatmateData.email,
+                flatId: flatmateData.flatId,
+                firstName: flatmateData.firstName,
+                lastName: flatmateData.lastName,
+                fullName: flatmateData.fullName,
+                nudgeCount: flatmateData.nudgeCount,
+            },
+        });
     });
 };
