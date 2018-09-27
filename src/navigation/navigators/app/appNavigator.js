@@ -9,6 +9,9 @@ import FaIcon from "react-native-vector-icons/FontAwesome";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 import React from "react";
+import {colors} from "../../../config/colors";
+
+const ICON_SIZE = 25;
 
 export const AppNavigator = createBottomTabNavigator(
     {
@@ -17,7 +20,7 @@ export const AppNavigator = createBottomTabNavigator(
             navigationOptions: {
                 tabBarLabel:"Chores",
                 tabBarIcon: ({ tintColor }) => (
-                    <Fa5Icon name="broom" size={20} />
+                    <Fa5Icon name="broom" size={ICON_SIZE} color={tintColor} />
                 )
             }
         },
@@ -26,7 +29,7 @@ export const AppNavigator = createBottomTabNavigator(
             navigationOptions: {
                 tabBarLabel:"Reminders",
                 tabBarIcon: ({ tintColor }) => (
-                    <FaIcon name="calendar" size={20} />
+                    <FaIcon name="calendar" size={ICON_SIZE} color={tintColor}/>
                 )
             }
         },
@@ -35,7 +38,7 @@ export const AppNavigator = createBottomTabNavigator(
             navigationOptions: {
                 tabBarLabel:"Groceries",
                 tabBarIcon: ({ tintColor }) => (
-                    <MaterialIcon name="local-grocery-store" size={20} />
+                    <MaterialIcon name="local-grocery-store" size={ICON_SIZE} color={tintColor}/>
                 )
             }
         },
@@ -44,14 +47,17 @@ export const AppNavigator = createBottomTabNavigator(
             navigationOptions: {
                 tabBarLabel:"More",
                 tabBarIcon: ({ tintColor }) => (
-                    <FeatherIcon name="more-horizontal" size={20} />
+                    <FeatherIcon name="more-horizontal" size={ICON_SIZE} color={tintColor} />
                 )
             }
         },
     },
     {
         tabBarOptions: {
-            showIcon: true
+            showIcon: true,
+            showLabel: false,
+            activeTintColor: colors.primary,
+            inactiveTintColor: 'gray',
         },
     }
 );
