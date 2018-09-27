@@ -15,11 +15,13 @@ class AddReminderContainer extends Component<Props> {
         super();
         this.state = {
             reminderName: '',
-            reminderDate: '',
+            reminderDate: null,
+            reminderInterval: '',
             loading: false,
         };
         this.onChangeReminderName = this.onChangeReminderName.bind(this);
         this.onChangeReminderDate = this.onChangeReminderDate.bind(this);
+        this.onChangeReminderInterval = this.onChangeReminderInterval.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
 
@@ -31,10 +33,15 @@ class AddReminderContainer extends Component<Props> {
         this.setState({reminderDate: choice});
     }
 
+    onChangeReminderInterval(choice) {
+        this.setState({reminderInterval: choice});
+    }
+
     onSubmit(e) {
         const reminder = {
             reminderName: this.state.reminderName,
             reminderDate: this.state.reminderDate,
+            reminderInterval: this.state.reminderInterval,
             completed: false,
         };
         this.setState({loading: true});
@@ -49,8 +56,10 @@ class AddReminderContainer extends Component<Props> {
         return <AddReminder
             reminderNameValue={this.state.reminderName}
             reminderDateValue={this.state.reminderDate}
+            reminderIntervalValue={this.state.reminderInterval}
             onChangeReminderDate={this.onChangeReminderDate}
             onChangeReminderName={this.onChangeReminderName}
+            onChangeReminderInterval={this.onChangeReminderInterval}
             onSubmit={this.onSubmit}
             loading={this.state.loading}/>
     }

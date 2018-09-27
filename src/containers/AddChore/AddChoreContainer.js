@@ -27,7 +27,7 @@ class AddChoreContainer extends Component<Props> {
         this.setState({choreName: text});
     }
 
-    onChoreIntervalChange(choice) {
+    onChoreIntervalChange(choice, idx) {
         this.setState({choreInterval: choice});
     }
 

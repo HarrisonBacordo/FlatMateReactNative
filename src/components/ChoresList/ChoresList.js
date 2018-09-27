@@ -17,7 +17,7 @@ export class ChoresList extends Component<Props> {
                 onToggleChore={this.props.onToggleChore}
                 choreName={chore.choreName}
                 flatmateAssigned={chore.flatmate}
-                choreInterval={chore.interval}
+                choreInterval={chore.choreInterval}
                 completed={chore.completed}
                 profPicUri={this.props.profPicUri}
                 currentFlatmateId={this.props.currentFlatmateId}/>

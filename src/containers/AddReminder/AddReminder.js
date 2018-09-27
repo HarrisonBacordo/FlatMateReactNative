@@ -11,8 +11,10 @@ const AddReminder = props =>
             onSubmit={props.onSubmit}
             onChangeReminderName={props.onChangeReminderName}
             onChangeReminderDate={props.onChangeReminderDate}
+            onChangeReminderInterval={props.onChangeReminderInterval}
             reminderNameValue={props.reminderNameValue}
             reminderDateValue={props.reminderDateValue}
+            reminderIntervalValue={props.reminderIntervalValue}
             loading={props.loading}/>
     </View>;
 
@@ -21,8 +23,10 @@ AddReminder.propTypes = {
     onSubmit: PropTypes.func.isRequired,
     onChangeReminderName: PropTypes.func.isRequired,
     onChangeReminderDate: PropTypes.func.isRequired,
+    onChangeReminderInterval: PropTypes.func.isRequired,
     reminderNameValue: PropTypes.string.isRequired,
-    reminderDateValue: PropTypes.string.isRequired,
+    reminderIntervalValue: PropTypes.string.isRequired,
+    reminderDateValue: PropTypes.instanceOf(Date),
     loading: PropTypes.bool.isRequired,
 };
 

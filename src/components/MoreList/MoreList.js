@@ -14,7 +14,7 @@ export class MoreList extends Component<Props> {
                 key={chore.id}
                 choreName={chore.choreName}
                 flatmateAssigned={chore.flatmate}
-                choreInterval={chore.interval}/>
+                choreInterval={chore.choreInterval}/>
         )
     }
 

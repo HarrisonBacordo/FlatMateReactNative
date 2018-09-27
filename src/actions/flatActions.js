@@ -53,7 +53,7 @@ export const fetchFlatData = (_flatId) => async dispatch => {
     choresCollection = await firestore.collection(`flats/${_flatId}/chores`).get();
     const choresList = toList(choresCollection);
     remindersCollection = await firestore.collection(`flats/${_flatId}/reminders`).get();
-    const remindersList = toList(remindersCollection);
+    const remindersList = toListReminders(remindersCollection);
     groceriesCollection = await firestore.collection(`flats/${_flatId}/groceries`).get();
     const groceriesList = toList(groceriesCollection);
 
@@ -74,6 +74,18 @@ function toList(query) {
         returnList.push({
             id: doc.id,
             ...doc.data(),
+        })
+    });
+    return returnList;
+}
+
+function toListReminders(query) {
+    let returnList = [];
+    query.forEach(doc => {
+        returnList.push({
+            ...doc.data(),
+            id: doc.id,
+            reminderDate: doc.data().reminderDate.toDate(),
         })
     });
     return returnList;

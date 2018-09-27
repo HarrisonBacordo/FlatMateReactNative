@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Text, View, TextInput} from 'react-native';
+import {Text, View, TextInput, Picker} from 'react-native';
 import {colors} from "../../config/colors";
 import {styles} from './styles';
 import {Card} from "../Card/Card";
@@ -8,10 +8,33 @@ import {CardSection} from "../Card/CardSection";
 import {TextField} from "../TextField";
 import {Button} from "../Button";
 import {Spinner} from "../Spinner";
+import {PickerField} from "../PickerField";
 
 type Props = {};
 
 export class AddChoreForm extends Component<Props> {
+    constructor() {
+        super();
+        this.items = [
+            {
+                label: "Daily",
+                value: "Daily",
+            },
+            {
+                label: "Weekly",
+                value: "Weekly",
+            },
+            {
+                label: "Fortnightly",
+                value: "Fortnightly",
+            },
+            {
+                label: "Monthly",
+                value: "Monthly",
+            },
+        ];
+    }
+
     renderButton() {
         if (this.props.loading) {
             return (
@@ -33,10 +56,18 @@ export class AddChoreForm extends Component<Props> {
             <View style={styles.containerStyle}>
                 <Card>
                     <CardSection>
-                        <TextField label={"Chore"} placeholder={"Clean living room"} value={this.props.choreNameValue} onChangeText={this.props.onChangeChoreName}/>
+                        <TextField
+                            label={"Chore"}
+                            placeholder={"Clean living room"}
+                            value={this.props.choreNameValue}
+                            onChangeText={this.props.onChangeChoreName}/>
                     </CardSection>
                     <CardSection>
-                        <TextField label={"Interval"} placeholder={"Weekly"} value={this.props.choreIntervalValue} onChangeText={this.props.onChangeChoreInterval}/>
+                        <PickerField
+                            label={"Interval"}
+                            selectedValue={this.props.choreIntervalValue}
+                            onValueChange={this.props.onChangeChoreInterval}
+                            items={this.items}/>
                     </CardSection>
 
                     {this.renderButton()}
@@ -51,6 +82,6 @@ AddChoreForm.propTypes = {
     onChangeChoreName: PropTypes.func.isRequired,
     onChangeChoreInterval: PropTypes.func.isRequired,
     choreNameValue: PropTypes.string.isRequired,
-    choreIntervalValue: PropTypes.string.isRequired,
+    choreIntervalValue: PropTypes.string,
     loading: PropTypes.bool.isRequired,
 };

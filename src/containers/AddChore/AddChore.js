@@ -22,7 +22,7 @@ AddChore.propTypes = {
     onChangeChoreName: PropTypes.func.isRequired,
     onChangeChoreInterval: PropTypes.func.isRequired,
     choreNameValue: PropTypes.string.isRequired,
-    choreIntervalValue: PropTypes.string.isRequired,
+    choreIntervalValue: PropTypes.string,
     loading: PropTypes.bool.isRequired,
 };
 

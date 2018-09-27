@@ -16,7 +16,7 @@ export class RemindersList extends Component<Props> {
                 onDelete={this.props.onDelete}
                 reminderName={reminder.reminderName}
                 reminderDate={reminder.reminderDate}
-                reminderInterval={reminder.interval}/>
+                reminderInterval={reminder.reminderInterval}/>
         )
     }
 
