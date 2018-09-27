@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import {Chore} from "../Chore/Chore";
 import {View} from "react-native";
 import {Button} from "../Button";
@@ -27,5 +26,4 @@ export class MoreList extends Component<Props> {
     }
 }
 
-MoreList.propTypes = {
-};
+MoreList.propTypes = {};

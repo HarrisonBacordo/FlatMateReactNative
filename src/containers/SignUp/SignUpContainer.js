@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import SignUp from "./SignUp";
-import {signUp, setupProfile} from "../../actions/authActions";
+import {setupProfile, signUp} from "../../actions/authActions";
 import {createFlatmate, fetchFlatmates} from "../../actions/flatmateActions";
 
 type Props = {};

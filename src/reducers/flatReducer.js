@@ -1,11 +1,14 @@
 import {
-    NEW_FLAT,
-    JOIN_FLAT,
     FETCH_FLAT_DATA,
-    NEW_GROCERY,
+    JOIN_FLAT,
     NEW_CHORE,
+    NEW_FLAT,
+    NEW_GROCERY,
     NEW_REMINDER,
-    REMOVE_CHORE, REMOVE_REMINDER, REMOVE_GROCERY, TOGGLE_CHORE
+    REMOVE_CHORE,
+    REMOVE_GROCERY,
+    REMOVE_REMINDER,
+    TOGGLE_CHORE
 } from "../actions/types";
 
 const initialState = {
@@ -16,7 +19,7 @@ const initialState = {
     groceries: [],
 };
 
-export default function(state=initialState, action) {
+export default function (state = initialState, action) {
     let tempList;
     switch (action.type) {
         case FETCH_FLAT_DATA:

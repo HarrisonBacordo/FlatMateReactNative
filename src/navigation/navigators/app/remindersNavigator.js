@@ -6,6 +6,6 @@ export default createStackNavigator(
     {
         [screenNames.REMINDERS]: containers.Reminders,
         [screenNames.ADD_REMINDER]: containers.AddReminder,
-    },{
+    }, {
         initialRouteName: 'Reminders',
     });

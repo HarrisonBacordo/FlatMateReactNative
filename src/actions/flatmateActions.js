@@ -1,4 +1,4 @@
-import {FETCH_FLATMATES, FETCH_CURRENT_FLATMATE_DATA, CREATE_FLATMATE} from "./types";
+import {CREATE_FLATMATE, FETCH_CURRENT_FLATMATE_DATA, FETCH_FLATMATES} from "./types";
 import * as firebase from 'firebase';
 
 let firestore = firebase.firestore();

@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Text, View} from 'react-native';
-import { styles } from './styles';
+import {styles} from './styles';
 
 type Props = {};
+
 export class Header extends Component<Props> {
     render() {
         return (

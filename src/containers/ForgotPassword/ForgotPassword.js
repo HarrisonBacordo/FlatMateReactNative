@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {Text, View} from 'react-native';
 import {styles} from './styles';
 import {constants} from "./constants";
-import {colors} from "../../config/colors";
 import {ForgotPasswordForm} from "../../components";
 
 const ForgotPassword = props =>

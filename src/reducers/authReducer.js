@@ -1,4 +1,4 @@
-import {LOG_IN, LOG_OUT, SIGN_UP, RESET_PASSWORD} from "../actions/types";
+import {LOG_IN, LOG_OUT, RESET_PASSWORD, SIGN_UP} from "../actions/types";
 
 const initialState = {
     userId: '',
@@ -10,7 +10,7 @@ const initialState = {
     isLoggedIn: false,
 };
 
-export default function(state=initialState, action) {
+export default function (state = initialState, action) {
     switch (action.type) {
         case LOG_IN:
             return {

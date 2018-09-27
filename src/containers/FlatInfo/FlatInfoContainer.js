@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import FlatInfo from "./FlatInfo";
-import {headerStyle, headerStyleWithAddButton} from "../../styles/header";
-import {Button} from "react-native";
+import {headerStyle} from "../../styles/header";
 
 type Props = {};
 
@@ -10,14 +9,13 @@ class FlatInfoContainer extends Component<Props> {
     static navigationOptions = () => {
         return headerStyle('Flat Info');
     };
+    _navigateToAddGrocery = () => {
+        this.props.navigation.navigate('AddReminder');
+    };
 
     componentDidMount() {
         this.props.navigation.setParams({navigateToAddGrocery: this._navigateToAddGrocery});
     }
-
-    _navigateToAddGrocery = () => {
-        this.props.navigation.navigate('AddReminder');
-    };
 
     render() {
         return <FlatInfo

@@ -6,6 +6,6 @@ export default createStackNavigator(
     {
         [screenNames.GROCERIES]: containers.Groceries,
         [screenNames.ADD_GROCERY]: containers.AddGrocery,
-    },{
+    }, {
         initialRouteName: 'Groceries',
     });

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Text, View, TextInput} from 'react-native';
+import {View} from 'react-native';
 import {colors} from "../../config/colors";
 import {styles} from './styles';
 import {Card} from "../Card/Card";
@@ -33,7 +33,8 @@ export class JoinFlatForm extends Component<Props> {
             <View style={styles.containerStyle}>
                 <Card>
                     <CardSection>
-                        <TextField label={"Flat ID"} placeholder={"Apples"} value={this.props.flatIdValue} onChangeText={this.props.onChangeFlatId}/>
+                        <TextField label={"Flat ID"} placeholder={"Apples"} value={this.props.flatIdValue}
+                                   onChangeText={this.props.onChangeFlatId}/>
                     </CardSection>
                     {this.renderButton()}
                 </Card>

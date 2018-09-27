@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {View, ActivityIndicator} from 'react-native';
+import {ActivityIndicator, View} from 'react-native';
 import {styles} from './styles';
 
 type Props = {};
+
 export class Spinner extends Component<Props> {
     render() {
         return (

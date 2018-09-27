@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Text, Image, View} from 'react-native';
+import {Image, Text, View} from 'react-native';
 import {styles} from './styles';
 import {Card} from "../Card/Card";
 import {CardSection} from "../Card/CardSection";

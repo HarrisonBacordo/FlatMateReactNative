@@ -8,12 +8,12 @@ export default createStackNavigator(
     {
         [screenNames.CHORES]: containers.Chores,
         [screenNames.ADD_CHORE]: containers.AddChore,
-    },{
+    }, {
         initialRouteName: 'Chores',
         navigationOptions: {
-            tabBarLabel:"Chores",
-            tabBarIcon: ({ tintColor }) => (
-                <Icon name="delete" size={30} color="#900" />
+            tabBarLabel: "Chores",
+            tabBarIcon: ({tintColor}) => (
+                <Icon name="delete" size={30} color="#900"/>
             )
         }
 

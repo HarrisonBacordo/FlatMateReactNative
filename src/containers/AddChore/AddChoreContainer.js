@@ -33,7 +33,7 @@ class AddChoreContainer extends Component<Props> {
 
     onSubmit(e) {
         const keys = Object.keys(this.props.flatmates.flatmates);
-        const chosenFlatmate = this.props.flatmates.flatmates[keys[ keys.length * Math.random() << 0]];
+        const chosenFlatmate = this.props.flatmates.flatmates[keys[keys.length * Math.random() << 0]];
         const chore = {
             choreName: this.state.choreName,
             choreInterval: this.state.choreInterval,

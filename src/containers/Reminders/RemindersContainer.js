@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Reminders from "./Reminders";
-import {headerStyle, headerStyleWithAddButton} from "../../styles/header";
-import {Button} from "react-native";
+import {headerStyleWithAddButton} from "../../styles/header";
 import {deleteReminder} from "../../actions/flatActions";
 
 type Props = {};
@@ -10,6 +9,9 @@ type Props = {};
 class RemindersContainer extends Component<Props> {
     static navigationOptions = ({navigation}) => {
         return headerStyleWithAddButton('Reminders', navigation.getParam('navigateToAddReminder'));
+    };
+    _navigateToAddReminder = () => {
+        this.props.navigation.navigate('AddReminder');
     };
 
     constructor() {
@@ -20,10 +22,6 @@ class RemindersContainer extends Component<Props> {
     componentDidMount() {
         this.props.navigation.setParams({navigateToAddReminder: this._navigateToAddReminder});
     }
-
-    _navigateToAddReminder = () => {
-        this.props.navigation.navigate('AddReminder');
-    };
 
     onDelete(reminderId) {
         this.props.deleteReminder(reminderId);

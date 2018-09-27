@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Text, View, TextInput} from 'react-native';
+import {View} from 'react-native';
 import {colors} from "../../config/colors";
 import {styles} from './styles';
 import {Card} from "../Card/Card";
@@ -33,7 +33,8 @@ export class NewFlatForm extends Component<Props> {
             <View style={styles.containerStyle}>
                 <Card>
                     <CardSection>
-                        <TextField label={"Flat Name"} placeholder={"My Flat"} value={this.props.flatNameValue} onChangeText={this.props.onChangeFlatName}/>
+                        <TextField label={"Flat Name"} placeholder={"My Flat"} value={this.props.flatNameValue}
+                                   onChangeText={this.props.onChangeFlatName}/>
                     </CardSection>
                     {this.renderButton()}
                 </Card>

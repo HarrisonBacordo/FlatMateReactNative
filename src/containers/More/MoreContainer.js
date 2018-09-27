@@ -2,14 +2,16 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import More from "./More";
 import {signOut} from '../../actions/authActions';
-import {headerStyle, headerStyleWithAddButton} from "../../styles/header";
-import {Button} from "react-native";
+import {headerStyle} from "../../styles/header";
 
 type Props = {};
 
 class MoreContainer extends Component<Props> {
     static navigationOptions = () => {
         return headerStyle('More');
+    };
+    _navigateToAddGrocery = () => {
+        this.props.navigation.navigate('AddReminder');
     };
 
     constructor() {
@@ -20,10 +22,6 @@ class MoreContainer extends Component<Props> {
     componentDidMount() {
         this.props.navigation.setParams({navigateToAddGrocery: this._navigateToAddGrocery});
     }
-
-    _navigateToAddGrocery = () => {
-        this.props.navigation.navigate('AddReminder');
-    };
 
     async onSignOut(e) {
         const promise = await this.props.signOut();

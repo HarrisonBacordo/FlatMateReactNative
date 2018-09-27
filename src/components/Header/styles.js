@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
         height: 100,
         paddingTop: 5,
         shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
+        shadowOffset: {width: 0, height: 2},
         shadowOpacity: 0.2,
         elevation: 5
     },

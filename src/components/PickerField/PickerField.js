@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Text, View, Picker} from 'react-native';
-import {colors} from "../../config/colors";
+import {Picker, Text, View} from 'react-native';
 import {styles} from './styles';
-import {Chore} from "../Chore";
 
 type Props = {};
 

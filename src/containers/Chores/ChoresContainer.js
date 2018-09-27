@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Chores from "./Chores";
 import {headerStyleWithAddButton} from "../../styles/header";
-import {colors} from "../../config/colors";
-import {Button} from "../../components/Button";
 import {deleteChore, nudgeChore, toggleChore} from "../../actions/flatActions";
 
 type Props = {};
@@ -11,6 +9,9 @@ type Props = {};
 class ChoresContainer extends Component<Props> {
     static navigationOptions = ({navigation}) => {
         return headerStyleWithAddButton('Chores', navigation.getParam('navigateToAddChore'));
+    };
+    _navigateToAddChore = () => {
+        this.props.navigation.navigate('AddReminder');
     };
 
     constructor() {
@@ -24,10 +25,6 @@ class ChoresContainer extends Component<Props> {
         this.props.navigation.setParams({navigateToAddChore: this._navigateToAddChore});
 
     }
-
-    _navigateToAddChore = () => {
-        this.props.navigation.navigate('AddReminder');
-    };
 
     onDelete(choreId) {
         console.log(choreId);
@@ -47,7 +44,7 @@ class ChoresContainer extends Component<Props> {
         return (<Chores
             chores={this.props.flat.chores}
             onDelete={this.onDelete}
-            onNudge ={this.onNudge}
+            onNudge={this.onNudge}
             onToggleChore={this.onToggleChore}
             profPicUri={this.props.flatmates.profPicUri}
             currentFlatmateId={this.props.flatmates.userId}/>)

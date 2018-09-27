@@ -1,7 +1,6 @@
 import {createStackNavigator} from "react-navigation";
 import * as screenNames from "../../screenNames";
 import * as containers from "../../../containers/index";
-import {AuthNavigator} from "../auth";
 
 export default createStackNavigator(
     {
@@ -10,6 +9,6 @@ export default createStackNavigator(
         [screenNames.JOIN_FLAT]: containers.JoinFlat,
         [screenNames.QR_SCANNER]: containers.QrScanner,
         [screenNames.FLAT_INFO]: containers.FlatInfo,
-    },{
+    }, {
         initialRouteName: 'More',
     });

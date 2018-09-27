@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {styles} from './styles';
-import {View, Image, Text} from "react-native";
+import {Image, Text, View} from "react-native";
 import {Menu, MenuOption, MenuOptions, MenuTrigger} from "react-native-popup-menu";
 
 type Props = {};

@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {View} from "react-native";
 import {Grocery} from "../Grocery";
-import {Reminder} from "../Reminder";
-import {Chore} from "../Chore";
 
 type Props = {};
 

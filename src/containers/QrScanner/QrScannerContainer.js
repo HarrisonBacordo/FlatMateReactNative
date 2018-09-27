@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import QrScanner from "./QrScanner";
-import {headerStyle, headerStyleWithAddButton} from "../../styles/header";
-import {Button} from "react-native";
-import {joinFlat, fetchFlatData} from "../../actions/flatActions";
+import {headerStyle} from "../../styles/header";
+import {fetchFlatData, joinFlat} from "../../actions/flatActions";
 import {fetchFlatmates} from "../../actions/flatmateActions";
-import Login from "../Login/Login";
 
 type Props = {};
 

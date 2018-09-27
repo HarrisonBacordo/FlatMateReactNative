@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Text, View, TextInput, TouchableOpacity, Image} from 'react-native';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {colors} from "../../config/colors";
 import {styles} from './styles';
 import {Card} from "../Card/Card";

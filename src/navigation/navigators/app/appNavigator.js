@@ -16,19 +16,19 @@ const ICON_SIZE = 25;
 export const AppNavigator = createBottomTabNavigator(
     {
         [screenNames.CHORES_TAB]: {
-            screen:choresNavigator,
+            screen: choresNavigator,
             navigationOptions: {
-                tabBarLabel:"Chores",
-                tabBarIcon: ({ tintColor }) => (
-                    <Fa5Icon name="broom" size={ICON_SIZE} color={tintColor} />
+                tabBarLabel: "Chores",
+                tabBarIcon: ({tintColor}) => (
+                    <Fa5Icon name="broom" size={ICON_SIZE} color={tintColor}/>
                 )
             }
         },
         [screenNames.REMINDERS_TAB]: {
             screen: remindersNavigator,
             navigationOptions: {
-                tabBarLabel:"Reminders",
-                tabBarIcon: ({ tintColor }) => (
+                tabBarLabel: "Reminders",
+                tabBarIcon: ({tintColor}) => (
                     <FaIcon name="calendar" size={ICON_SIZE} color={tintColor}/>
                 )
             }
@@ -36,8 +36,8 @@ export const AppNavigator = createBottomTabNavigator(
         [screenNames.GROCERIES_TAB]: {
             screen: groceriesNavigator,
             navigationOptions: {
-                tabBarLabel:"Groceries",
-                tabBarIcon: ({ tintColor }) => (
+                tabBarLabel: "Groceries",
+                tabBarIcon: ({tintColor}) => (
                     <MaterialIcon name="local-grocery-store" size={ICON_SIZE} color={tintColor}/>
                 )
             }
@@ -45,9 +45,9 @@ export const AppNavigator = createBottomTabNavigator(
         [screenNames.MORE_TAB]: {
             screen: moreNavigator,
             navigationOptions: {
-                tabBarLabel:"More",
-                tabBarIcon: ({ tintColor }) => (
-                    <FeatherIcon name="more-horizontal" size={ICON_SIZE} color={tintColor} />
+                tabBarLabel: "More",
+                tabBarIcon: ({tintColor}) => (
+                    <FeatherIcon name="more-horizontal" size={ICON_SIZE} color={tintColor}/>
                 )
             }
         },

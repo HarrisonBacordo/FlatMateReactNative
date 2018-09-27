@@ -5,7 +5,7 @@ export {LoginForm} from './LoginForm';
 export {SignUpForm} from './SignUpForm';
 export {ForgotPasswordForm} from './ForgotPasswordForm';
 export {ChoresList} from './ChoresList';
-export {RemindersList} from  './RemindersList';
+export {RemindersList} from './RemindersList';
 export {GroceriesList} from './GroceriesList';
 export {MoreList} from './MoreList';
 export {AddChoreForm} from './AddChoreForm';

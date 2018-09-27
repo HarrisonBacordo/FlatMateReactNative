@@ -35,7 +35,7 @@ class LoginContainer extends Component<Props> {
         };
         this.setState({loading: true});
         const promise = await this.props.logIn(loginData);
-        if(promise !== undefined) {
+        if (promise !== undefined) {
             this.props.fetchCurrentFlatmateData(this.props.auth.userId).then(() => {
                 this.props.fetchFlatData(this.props.flatmates.flatId).then(() => {
                     this.props.fetchFlatmates(this.props.flatmates.flatId).then(() => {
@@ -65,4 +65,10 @@ const mapStateToProps = state => ({
     flat: state.flat,
 });
 
-export default connect(mapStateToProps, {logIn, fetchCurrentFlatmateData, fetchFlatData, newGrocery, fetchFlatmates})(LoginContainer)
+export default connect(mapStateToProps, {
+    logIn,
+    fetchCurrentFlatmateData,
+    fetchFlatData,
+    newGrocery,
+    fetchFlatmates
+})(LoginContainer)

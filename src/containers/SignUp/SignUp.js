@@ -1,11 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Image, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 import {styles} from './styles'
 import {constants} from "./constants";
-import {TextField} from "../../components/TextField";
-import {Button} from "../../components/Button";
-import {colors} from "../../config/colors";
 import {SignUpForm} from "../../components";
 
 

@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import JoinFlat from "./JoinFlat";
-import {headerStyle, headerStyleWithAddButton} from "../../styles/header";
-import {Button} from "react-native";
-import {joinFlat, fetchFlatData} from "../../actions/flatActions";
+import {headerStyle} from "../../styles/header";
+import {fetchFlatData, joinFlat} from "../../actions/flatActions";
 import {fetchFlatmates} from "../../actions/flatmateActions";
 
 type Props = {};

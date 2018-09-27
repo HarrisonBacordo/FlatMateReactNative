@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Chore} from "../Chore/Chore";
 import {Text, View} from "react-native";
 import {Card} from "../Card/Card";
 import {CardSection} from "../Card/CardSection";

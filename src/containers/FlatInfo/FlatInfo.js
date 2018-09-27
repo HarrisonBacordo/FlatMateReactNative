@@ -1,10 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {Text, View} from 'react-native';
 import {styles} from './styles';
-import {constants} from "./constants";
 import QRCode from 'react-native-qrcode';
-import {colors} from "../../config/colors";
 
 const FlatInfo = props =>
     <View style={styles.containerStyle}>

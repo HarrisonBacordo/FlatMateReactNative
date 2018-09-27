@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Text, View, TextInput, Picker} from 'react-native';
+import {View} from 'react-native';
 import {colors} from "../../config/colors";
 import {styles} from './styles';
 import {Card} from "../Card/Card";

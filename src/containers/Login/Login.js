@@ -1,7 +1,6 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import {View, Image, Text} from 'react-native';
-import {Button, TextField} from "../../components/index";
+import React from 'react';
+import {Image, Text, View} from 'react-native';
+import {Button} from "../../components/index";
 import {colors} from "../../config/colors";
 import {constants} from "./constants";
 import {styles} from "./styles";
@@ -21,7 +20,8 @@ const Login = props =>
             passwordValue={props.passwordValue}
             loading={props.loading}
             onSignUpPressed={() => props.navigation.navigate('SignUp')}/>
-        <Button onPress={() => props.navigation.navigate('ForgotPassword')} text={constants.forgotPasswordText} color={colors.transparent}/>
+        <Button onPress={() => props.navigation.navigate('ForgotPassword')} text={constants.forgotPasswordText}
+                color={colors.transparent}/>
     </View>;
 
 Login.propTypes = {};

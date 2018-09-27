@@ -1,4 +1,4 @@
-import {LOG_IN, SIGN_UP, SETUP_PROFILE, RESET_PASSWORD, SIGN_OUT, FAIL} from "./types";
+import {FAIL, LOG_IN, RESET_PASSWORD, SETUP_PROFILE, SIGN_OUT, SIGN_UP} from "./types";
 import * as firebase from 'firebase';
 
 let auth = new firebase.auth();

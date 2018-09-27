@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Text, View} from 'react-native';
-import {styles} from './styles';
+import {View} from 'react-native';
 import {constants} from "./constants";
 import {JoinFlatForm} from "../../components/JoinFlatForm";
 import {Button} from "../../components/Button";
@@ -14,7 +13,8 @@ const JoinFlat = props =>
             onChangeFlatId={props.onChangeFlatId}
             flatIdValue={props.flatIdValue}
             loading={props.loading}/>
-        <Button onPress={() => props.navigation.navigate('QrScanner')} text={constants.navigateQrScannerText} color={colors.transparent}/>
+        <Button onPress={() => props.navigation.navigate('QrScanner')} text={constants.navigateQrScannerText}
+                color={colors.transparent}/>
     </View>;
 
 

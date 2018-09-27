@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Text, View, TextInput} from 'react-native';
+import {View} from 'react-native';
 import {colors} from "../../config/colors";
 import {styles} from './styles';
 import {Card} from "../Card/Card";
@@ -33,7 +33,8 @@ export class AddGroceryForm extends Component<Props> {
             <View style={styles.containerStyle}>
                 <Card>
                     <CardSection>
-                        <TextField label={"Grocery Name"} placeholder={"Apples"} value={this.props.groceryNameValue} onChangeText={this.props.onChangeGroceryName}/>
+                        <TextField label={"Grocery Name"} placeholder={"Apples"} value={this.props.groceryNameValue}
+                                   onChangeText={this.props.onChangeGroceryName}/>
                     </CardSection>
                     {this.renderButton()}
                 </Card>
