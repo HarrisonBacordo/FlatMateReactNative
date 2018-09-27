@@ -11,3 +11,4 @@ export {default as More} from "./More";
 export {default as NewFlat} from "./NewFlat";
 export {default as JoinFlat} from "./JoinFlat";
 export {default as FlatInfo} from "./FlatInfo";
+export {default as QrScanner} from "./QrScanner";

@@ -1,3 +1,3 @@
-import NewFlatContainer from "./JoinFlatContainer";
+import JoinFlatContainer from "./JoinFlatContainer";
 
-export default NewFlatContainer;
+export default JoinFlatContainer;

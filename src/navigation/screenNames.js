@@ -19,5 +19,6 @@ export const ADD_REMINDER = "AddReminder";
 export const MORE_TAB = "MoreTab";
 export const MORE = "More";
 export const NEW_FLAT = "NewFlat";
-export const JOIN_FLAT = "JoinFlat";
+export const JOIN_FLAT = "JoinFlatContainer";
+export const QR_SCANNER = "QrScanner";
 export const FLAT_INFO = "FlatInfo";

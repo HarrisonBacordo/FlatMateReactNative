@@ -7,8 +7,8 @@ import {Button} from "react-native";
 type Props = {};
 
 class FlatInfoContainer extends Component<Props> {
-    static navigationOptions = ({navigation}) => {
-        return headerStyleWithAddButton('FlatInfo', navigation.getParam('navigateToAddGrocery'));
+    static navigationOptions = () => {
+        return headerStyle('Flat Info');
     };
 
     componentDidMount() {
@@ -20,14 +20,15 @@ class FlatInfoContainer extends Component<Props> {
     };
 
     render() {
-        return <FlatInfo/>
+        return <FlatInfo
+            flatId={this.props.flat.flatId}/>
     }
 }
 
 FlatInfoContainer.propTypes = {};
 
 const mapStateToProps = state => ({
-    groceries: state.groceries,
+    flat: state.flat,
 });
 
 export default connect(mapStateToProps, {})(FlatInfoContainer)
