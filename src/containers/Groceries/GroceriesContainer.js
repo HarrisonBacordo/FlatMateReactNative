@@ -6,6 +6,7 @@ import {deleteGrocery} from "../../actions/flatActions";
 
 type Props = {};
 
+//TODO GROCERIES VISUAL REFACTOR
 class GroceriesContainer extends Component<Props> {
     static navigationOptions = ({navigation}) => {
         return headerStyleWithAddButton('Groceries', navigation.getParam('navigateToAddGrocery'));

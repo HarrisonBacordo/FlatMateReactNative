@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {View} from 'react-native';
 import {NewFlatForm} from "../../components/NewFlatForm";
+import {Button} from "../../components/Button";
+import {constants} from "./constants";
+import {colors} from "../../config/colors";
 
 const NewFlat = props =>
     <View>
@@ -10,6 +13,8 @@ const NewFlat = props =>
             onChangeFlatName={props.onChangeFlatName}
             flatNameValue={props.flatNameValue}
             loading={props.loading}/>
+        <Button lowercase onPress={() => props.navigation.navigate('JoinFlat')} text={constants.joinFlatButton}
+                color={colors.transparent}/>
     </View>;
 
 

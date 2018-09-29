@@ -48,7 +48,8 @@ class NewFlatContainer extends Component<Props> {
             flatNameValue={this.state.flatName}
             onChangeFlatName={this.onChangeFlatName}
             loading={this.state.loading}
-            onSubmit={this.onSubmit}/>
+            onSubmit={this.onSubmit}
+            navigation={this.props.navigation}/>
     }
 }
 

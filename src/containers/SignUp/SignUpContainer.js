@@ -46,8 +46,13 @@ class SignUpContainer extends Component<Props> {
     }
 
     async onSubmit(e) {
-        const response = await fetch(this.state.pictureUri.uri);
-        const blob = await response.blob();
+        let blob;
+        if (this.state.pictureUri === null) {
+            blob = null;
+        } else {
+            const response = await fetch(this.state.pictureUri.uri);
+            blob = await response.blob();
+        }
         const signUpData = {
             profPicUri: blob,
             firstName: this.state.firstName,
@@ -63,7 +68,7 @@ class SignUpContainer extends Component<Props> {
         await this.props.createFlatmate(this.props.auth.userId, signUpData);
         await this.props.fetchFlatmates(this.props.auth.flatId);
         this.setState({loading: false});
-        this.props.navigation.navigate('Chores');
+        this.props.navigation.navigate('InitialSignUp');
     }
 
     render() {

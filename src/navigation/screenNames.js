@@ -3,6 +3,8 @@ export const LOGIN = "Login";
 export const SIGN_UP = "SignUp";
 export const FORGOT_PASSWORD = "ForgotPassword";
 
+export const INITIAL_SIGN_UP = "InitialSignUp";
+
 export const APP = "App";
 export const CHORES_TAB = "ChoresTab";
 export const CHORES = "Chores";
@@ -19,6 +21,6 @@ export const ADD_REMINDER = "AddReminder";
 export const MORE_TAB = "MoreTab";
 export const MORE = "More";
 export const NEW_FLAT = "NewFlat";
-export const JOIN_FLAT = "JoinFlatContainer";
+export const JOIN_FLAT = "JoinFlat";
 export const QR_SCANNER = "QrScanner";
 export const FLAT_INFO = "FlatInfo";

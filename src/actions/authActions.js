@@ -23,6 +23,9 @@ export const signUp = (email, password) => dispatch => {
 };
 
 export const setupProfile = (blob) => dispatch => {
+    if (blob === null) {
+        return;
+    }
     let user = auth.currentUser;
     let storageRef = storage.ref('profile_pictures/' + user.uid + '.jpg');
     return storageRef.put(blob).then(() => {

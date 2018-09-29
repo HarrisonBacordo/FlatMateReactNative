@@ -33,7 +33,7 @@ export class JoinFlatForm extends Component<Props> {
             <View style={styles.containerStyle}>
                 <Card>
                     <CardSection>
-                        <TextField label={"Flat ID"} placeholder={"Apples"} value={this.props.flatIdValue}
+                        <TextField label={"Flat ID"} placeholder={"Flat ID"} value={this.props.flatIdValue}
                                    onChangeText={this.props.onChangeFlatId}/>
                     </CardSection>
                     {this.renderButton()}

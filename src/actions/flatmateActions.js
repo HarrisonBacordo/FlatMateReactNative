@@ -37,7 +37,13 @@ export const fetchFlatmates = (flatId) => async dispatch => {
 };
 
 export const createFlatmate = (userId, flatmateData) => dispatch => {
-    let storageRef = storage.ref('profile_pictures/' + userId + '.jpg');
+    let storageUserId;
+    if(flatmateData.profPicUri === null) {
+        storageUserId = 'default_profpic';
+    } else {
+        storageUserId = userId;
+    }
+    let storageRef = storage.ref('profile_pictures/' + storageUserId + '.jpg');
     storageRef.getDownloadURL().then(uri => {
         firestore.doc(`users/${userId}`).set({
             profPicUri: uri,
