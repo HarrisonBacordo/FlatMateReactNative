@@ -13,8 +13,9 @@ export class GroceriesList extends Component<Props> {
                 id={grocery.id}
                 key={grocery.id}
                 onDelete={this.props.onDelete}
+                onValueChange={this.props.onValueChange}
                 groceryName={grocery.groceryName}
-                isCompleted={grocery.completed}/>
+                completed={grocery.completed}/>
         )
     }
 
@@ -30,4 +31,5 @@ export class GroceriesList extends Component<Props> {
 GroceriesList.propTypes = {
     groceries: PropTypes.array.isRequired,
     onDelete: PropTypes.func.isRequired,
+    onValueChange: PropTypes.func.isRequired,
 };

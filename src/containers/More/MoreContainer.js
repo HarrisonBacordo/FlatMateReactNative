@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import More from "./More";
 import {signOut} from '../../actions/authActions';
+import {clearFlatState} from '../../actions/flatActions';
+import {clearFlatmateState} from '../../actions/flatmateActions';
 import {headerStyle} from "../../styles/header";
 
 type Props = {};
@@ -41,4 +43,4 @@ const mapStateToProps = state => ({
     flatmate: state.flatmate,
 });
 
-export default connect(mapStateToProps, {signOut})(MoreContainer)
+export default connect(mapStateToProps, {signOut, clearFlatmateState, clearFlatState})(MoreContainer)

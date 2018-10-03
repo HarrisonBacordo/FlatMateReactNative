@@ -47,6 +47,7 @@ export const createFlatmate = (userId, flatmateData) => dispatch => {
     storageRef.getDownloadURL().then(uri => {
         firestore.doc(`users/${userId}`).set({
             profPicUri: uri,
+            userId: userId,
             email: flatmateData.email,
             flatId: flatmateData.flatId,
             firstName: flatmateData.firstName,
@@ -58,6 +59,7 @@ export const createFlatmate = (userId, flatmateData) => dispatch => {
             type: CREATE_FLATMATE,
             payload: {
                 profPicUri: uri,
+                userId: userId,
                 email: flatmateData.email,
                 flatId: flatmateData.flatId,
                 firstName: flatmateData.firstName,

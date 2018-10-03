@@ -4,7 +4,7 @@ import {
     FETCH_FLATMATES,
     JOIN_FLAT,
     NEW_FLAT,
-    NUDGE_CHORE
+    NUDGE_CHORE, SIGN_OUT
 } from "../actions/types";
 
 const initialState = {
@@ -14,6 +14,7 @@ const initialState = {
     email: '',
     firstName: '',
     lastName: '',
+    fullName: '',
     nudgeCount: '',
     flatmates: [],
 };
@@ -52,6 +53,19 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 nudgeCount: action.payload,
+            };
+        case SIGN_OUT:
+            return {
+                ...state,
+                profPicUri: '',
+                userId: '',
+                flatId: 'Unassigned',
+                email: '',
+                firstName: '',
+                lastName: '',
+                fullName: '',
+                nudgeCount: '',
+                flatmates: [],
             };
         default:
             return state;

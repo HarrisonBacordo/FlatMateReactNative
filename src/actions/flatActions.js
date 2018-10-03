@@ -168,11 +168,14 @@ export const deleteGrocery = (groceryId) => dispatch => {
     });
 };
 
-export const toggleGrocery = (groceryId) => dispatch => {
+export const toggleGrocery = (groceryId, value) => dispatch => {
     return firestore.doc(`flats/${currentFlatId}/groceries/${groceryId}`).update('completed', value).then(() => {
         dispatch({
             type: TOGGLE_GROCERY,
-            payload: groceryId,
+            payload: {
+                groceryId: groceryId,
+                value: value
+            }
         })
     });
 };

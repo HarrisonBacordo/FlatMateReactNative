@@ -7,8 +7,8 @@ import {
     NEW_REMINDER,
     REMOVE_CHORE,
     REMOVE_GROCERY,
-    REMOVE_REMINDER,
-    TOGGLE_CHORE
+    REMOVE_REMINDER, SIGN_OUT,
+    TOGGLE_CHORE, TOGGLE_GROCERY
 } from "../actions/types";
 
 const initialState = {
@@ -110,6 +110,31 @@ export default function (state = initialState, action) {
                 ...state,
                 chores: tempList
             };
+        case TOGGLE_GROCERY:
+            tempList = [];
+            state.groceries.forEach(grocery => {
+                if (grocery.id === action.payload.groceryId) {
+                    let tempGrocery = grocery;
+                    tempGrocery.completed = action.payload.value;
+                    tempList.push(tempGrocery);
+                } else {
+                    tempList.push(grocery);
+                }
+            });
+            return {
+                ...state,
+                groceries: tempList
+            };
+        case SIGN_OUT:
+            return {
+                ...state,
+                flatId: '',
+                flatName: '',
+                chores: [],
+                reminders: [],
+                groceries: [],
+            };
+
         default:
             return state;
     }

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Groceries from "./Groceries";
 import {headerStyleWithAddButton} from "../../styles/header";
-import {deleteGrocery} from "../../actions/flatActions";
+import {deleteGrocery, toggleGrocery} from "../../actions/flatActions";
 
 type Props = {};
 
@@ -18,10 +18,16 @@ class GroceriesContainer extends Component<Props> {
     constructor() {
         super();
         this.onDelete = this.onDelete.bind(this);
+        this.onValueChange = this.onValueChange.bind(this);
     }
 
     componentDidMount() {
         this.props.navigation.setParams({navigateToAddGrocery: this._navigateToAddGrocery});
+    }
+
+    onValueChange(groceryId, value) {
+        this.props.toggleGrocery(groceryId, value);
+
     }
 
     onDelete(groceryId) {
@@ -31,7 +37,8 @@ class GroceriesContainer extends Component<Props> {
     render() {
         return <Groceries
             groceries={this.props.flat.groceries}
-            onDelete={this.onDelete}/>
+            onDelete={this.onDelete}
+            onValueChange={this.onValueChange}/>
     }
 }
 
@@ -41,4 +48,4 @@ const mapStateToProps = state => ({
     flat: state.flat,
 });
 
-export default connect(mapStateToProps, {deleteGrocery: deleteGrocery})(GroceriesContainer)
+export default connect(mapStateToProps, {toggleGrocery, deleteGrocery})(GroceriesContainer)

@@ -9,7 +9,7 @@ firestore.settings(settings);
 
 
 export const logIn = (loginData) => dispatch => {
-    return authenticateUser('harryjab@gmail.com', 'bobohobo1')
+    return authenticateUser(loginData.email, loginData.password)
         .then(() =>
             dispatch(setUserId(auth.currentUser.uid, LOG_IN))
         );
@@ -44,7 +44,9 @@ export const resetPassword = (email) => dispatch => {
 
 export const signOut = () => dispatch => {
     return auth.signOut().then(() =>
-        dispatch(notifySignOut)
+        dispatch({
+            type: SIGN_OUT,
+        })
     );
 };
 
